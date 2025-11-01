@@ -32,6 +32,14 @@ public class GhostAI : MonoBehaviour
         StartCoroutine(nameof(WaitRoutine), 0.5f);
     }
 
+    //GHOST CRAWL TOWARDS PLAYER
+
+    //WEEPING ANGEL?
+
+    //GHOST CAN KILL OR CAN SHUT OFF CAMERA
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -147,7 +155,7 @@ public class GhostAI : MonoBehaviour
         }
         if(curDistance < .5f)
         {
-            //TODO ATTACK PLAYER
+            Player.Instance.OnAttacked();
         }
         StartCoroutine(nameof(WaitRoutine), 0.25f);
 
