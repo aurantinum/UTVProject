@@ -352,7 +352,7 @@
             "m_Id": "08ea312966644b0f80b5fc5e2c6eb67b"
         },
         {
-            "m_Id": "a36e4b9d1c5543a7b57163f4b4dd6e7c"
+            "m_Id": "a0ccd26109424a47a884cc57cb928dbb"
         }
     ],
     "synonyms": [
@@ -489,7 +489,7 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.ColorRGBAMaterialSlot",
-    "m_ObjectId": "a36e4b9d1c5543a7b57163f4b4dd6e7c",
+    "m_ObjectId": "a0ccd26109424a47a884cc57cb928dbb",
     "m_Id": 2,
     "m_DisplayName": "Output",
     "m_SlotType": 1,
