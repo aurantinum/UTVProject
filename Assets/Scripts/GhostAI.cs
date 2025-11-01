@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.AI;
@@ -41,6 +42,8 @@ public class GhostAI : MonoBehaviour
     {
         StopAllCoroutines();
         CurrentFreezeLength = freezeLength;
+        var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
+        foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = true;
         StartCoroutine(nameof(FreezeRoutine));
     }
 
@@ -57,6 +60,8 @@ public class GhostAI : MonoBehaviour
             agent.isStopped = true;
             yield return new WaitForEndOfFrame();
         }
+        var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
+        foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = false;
         StartCoroutine(nameof(WaitRoutine), 0);
     }
 
