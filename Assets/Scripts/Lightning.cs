@@ -23,8 +23,7 @@ public class Lightning : MonoBehaviour
         currentTime += Time.deltaTime;
         if (currentTime >= timeUntilNextLightning)
         {
-            // foreach (var source in audioSources)
-            //     source.Play();
+            SoundManager.PlaySound(SoundType.cave_2,1f);
         
             currentTime = 0.0f;
             StartCoroutine((LightningFlashes(5)));

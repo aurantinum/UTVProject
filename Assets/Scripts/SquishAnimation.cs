@@ -63,6 +63,7 @@ public class SquishAnimation : MonoBehaviour
     {
         // Play the particle system
         if (particleSystem) particleSystem.Play();
+        SoundManager.PlaySound(SoundType.cave_1, 0.2f);
 
         // Animate
         float halfDuration = squishDuration / 2f;
