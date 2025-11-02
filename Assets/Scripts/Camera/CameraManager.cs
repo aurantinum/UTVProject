@@ -242,14 +242,7 @@ public class CameraManager : Singleton<CameraManager>
         controller.enableZoom = false;
         controller.UpdateStart();
 
-        SoundManager.PlaySound(SoundType.CameraClick);
-        // Check win condition
-        bool won = photoManager.HasWon();
 
-        if (won) { 
-            WinManager.Instance.WinGame(controller, shutterTime);
-            yield break; 
-        }
 
         for (int i = 0; i <= shutterTime; i++)
         {
@@ -281,6 +274,15 @@ public class CameraManager : Singleton<CameraManager>
         // Turn off camera
         UpdateCameras(CameraMode.Player);
 
+        SoundManager.PlaySound(SoundType.CameraClick);
+        // Check win condition
+        bool won = photoManager.HasWon();
+
+        if (won)
+        {
+            WinManager.Instance.WinGame(controller, shutterTime);
+            yield break;
+        }
         takingPicture = false;
     }
 

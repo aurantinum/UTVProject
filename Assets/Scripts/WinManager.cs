@@ -31,7 +31,8 @@ public class WinManager : Singleton<WinManager>
         sanity.SetActive(false);
         pauseManager.gameObject.SetActive(false);
         StartCoroutine(Polterzoom(winScreen.GetComponentInChildren<Animator>().gameObject, controller, shutterTime));
-
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         // play scary sound
     }
 
@@ -40,7 +41,8 @@ public class WinManager : Singleton<WinManager>
         loseScreen.SetActive(true);
         sanity.SetActive(false);
         pauseManager.gameObject.SetActive(false);
-
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         // PLEASE REPLACE NULL WITH AUDIO SOURCE
         StartCoroutine(WaitForCrack(null));
     }

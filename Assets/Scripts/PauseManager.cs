@@ -39,7 +39,7 @@ public class PauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        Debug.Log("RESUME");
+        paused = false;
 
         controller.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
@@ -59,6 +59,8 @@ public class PauseManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        paused = false;
+        Cursor.visible = true;
         SceneManager.LoadScene("Main Menu");
     }
 }
