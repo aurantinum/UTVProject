@@ -29,7 +29,7 @@ public class SquishAnimation : MonoBehaviour
     private void Start()
     {
         originalScale = target.localScale;
-        AddComp
+        
     }
 
     private void Update()
