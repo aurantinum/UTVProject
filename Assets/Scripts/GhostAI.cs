@@ -73,6 +73,8 @@ public class GhostAI : MonoBehaviour
     {
         state = GhostState.FROZEN;
         TimeFrozen = 0f;
+        var col = GetComponentInChildren<Collider>();
+        col.enabled = false;
         Enrage += 1;
         SkinnedMeshRenderer renderer = transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
         var baseC = renderer.material.color;
@@ -107,6 +109,7 @@ public class GhostAI : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Ghost");
         transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Ghost");
         transform.GetChild(0).GetChild(0).gameObject.layer = LayerMask.NameToLayer("Ghost");
+        col.enabled = true;
         StartCoroutine(nameof(WaitRoutine), 0);
     }
 
