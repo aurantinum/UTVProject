@@ -75,6 +75,7 @@ public class GhostPropsManager : MonoBehaviour
 
             // add squish
             SquishAnimation squish = ghostProp.AddComponent<SquishAnimation>();
+            squish.squishStrength = 0.08f;
             squish.target = ghostProp.transform;
             squish.enabled = true;
 
