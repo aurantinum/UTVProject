@@ -37,11 +37,12 @@ public class CameraManager : Singleton<CameraManager>
     public UnityEvent OnCameraTakenOut = new();
 
     private GhostAI ghostAI;
+    float r, g, b;
 
     GameObject ghostObject;
 
 
-    enum CameraMode { Player, Camera }
+    public enum CameraMode { Player, Camera }
 
     [Header("Set Variables")]
     [SerializeField] float holdPictureTime = 5f;
@@ -60,6 +61,10 @@ public class CameraManager : Singleton<CameraManager>
         pictures = new();
         ghostAI = FindAnyObjectByType<GhostAI>();
         ghostObject = GameObject.FindGameObjectWithTag("Ghost");
+
+        r = vignetteMat.color.r;
+        g = vignetteMat.color.g;
+        b = vignetteMat.color.b;
     }
 
     private void Update()
@@ -77,7 +82,7 @@ public class CameraManager : Singleton<CameraManager>
 
         // Every five seconds, update what objects are in view 
         // so that we can do vignette stuff
-        if (waitForUpdate > 2)
+        if (waitForUpdate > 0.2f)
         {
             FindObjectInView();
             waitForUpdate = 0;
@@ -123,26 +128,18 @@ public class CameraManager : Singleton<CameraManager>
             }
         }
 
-        if (newPicture.hasGhost)
-        {
-            float t = Mathf.Lerp(0, 5, collisions[ghostObject])/5f;
-            float intensity = Mathf.Lerp(-2.5f, 4, t);
-            float factor = Mathf.Pow(2, intensity);
-            vignetteMat.color = new Color(vignetteMat.color.r * factor, vignetteMat.color.g * factor, vignetteMat.color.b * factor);
-        }
+        //float value = Mathf.Lerp(3, 20, (5 - collisions.GetValueOrDefault(ghostObject, 0))/5f);
+        //vignetteMat.SetFloat("_VignettePower", value);
 
     }
 
-    void UpdateCameras(CameraMode mode)
+    public void UpdateCameras(CameraMode mode)
     {
         isCameraMode = mode == CameraMode.Camera;
 
         // Turn on camera crosshairs, border, and images
         controller.crosshair = isCameraMode;
         pictureDisplay.transform.parent.gameObject.SetActive(!isCameraMode);
-
-        // Turn on / off zooming
-        controller.enableZoom = isCameraMode;
 
         // Restrict / enable camera movement
         if (isCameraMode)
