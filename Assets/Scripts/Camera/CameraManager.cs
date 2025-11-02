@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Cinemachine;
+using Unity.Entities.UniversalDelegates;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -14,13 +15,14 @@ public class CameraManager : Singleton<CameraManager>
 {
     [Header("Controller")]
     [SerializeField] FirstPersonController controller;
+    [SerializeField] Camera photoCamera;
 
     [Header("Images")]
     [SerializeField] RenderTexture targetTexture;
     [SerializeField] Image blackout;
     [SerializeField] Image pictureDisplay;
-    public List<(Sprite sprite, bool hasGhost, bool hasProp)> pictures;
-    public (Sprite sprite, bool hasGhost, bool hasProp) newPicture;
+    public List<(Sprite sprite, bool hasGhost, bool hasProp, GameObject currentProp)> pictures;
+    public (Sprite sprite, bool hasGhost, bool hasProp, GameObject currentProp) newPicture;
 
     public UnityEvent OnAnyPictureTaken = new();
     public UnityEvent OnGhostPictureTaken = new();
@@ -55,11 +57,13 @@ public class CameraManager : Singleton<CameraManager>
     void FindObjectInView()
     {
         Dictionary<GameObject, int> collisions = new();
+        int maxCollisions = 0; 
 
         float marginX = 5;
         float marginY = 5;
 
         newPicture.hasGhost = false;
+        newPicture.hasProp = false;
 
         for (float x = 0; x < Screen.width; x += marginX)
         {
@@ -75,8 +79,15 @@ public class CameraManager : Singleton<CameraManager>
                     collisions[obj] = collisions.GetValueOrDefault(obj, 0) + 1;
 
                     if (hit.collider.CompareTag("Ghost")) newPicture.hasGhost = true;
-                    if (hit.collider.CompareTag("GhostProp")) newPicture.hasProp = true;
-                    if (hit.collider.CompareTag("GhostProp")) OnGhostPropPictureTaken.Invoke(hit.collider.gameObject);
+                    if (hit.collider.CompareTag("GhostProp"))
+                    {
+                        newPicture.hasProp = true;
+                        if (collisions[obj] > maxCollisions)
+                        {
+                            maxCollisions = collisions[obj];
+                            newPicture.currentProp = obj;
+                        }
+                    }
                 }
             }
         }
@@ -154,8 +165,6 @@ public class CameraManager : Singleton<CameraManager>
 
         Sprite picture = Sprite.Create(image, new Rect(0.0f, 0.0f, image.width, image.height), new Vector2(0.5f, 0.5f), 100.0f);
         newPicture.sprite = picture;
-        pictures.Add(newPicture);
-        newPicture = new();
 
         // Reset
         RenderTexture.active = currentRT;
@@ -166,8 +175,15 @@ public class CameraManager : Singleton<CameraManager>
         StartCoroutine(TakePicture(picture));
 
         OnAnyPictureTaken.Invoke();
-        if(newPicture.hasGhost)
+        if (newPicture.hasGhost)
             OnGhostPictureTaken.Invoke();
+
+        else if (newPicture.hasProp)
+        {
+            OnGhostPropPictureTaken.Invoke(newPicture.currentProp);
+            pictures.Add(newPicture);
+            newPicture = new();
+        }
     }
 
     IEnumerator TakePicture(Sprite picture)
@@ -183,6 +199,7 @@ public class CameraManager : Singleton<CameraManager>
             else blackout.color = new Color(0, 0, 0, (1 - i) * 2);
             yield return new WaitForEndOfFrame();
         }
+        blackout.color = new Color(0, 0, 0, 0);
 
         // Switch back to normal camera but add image on screen
         pictureDisplay.transform.parent.gameObject.SetActive(true);

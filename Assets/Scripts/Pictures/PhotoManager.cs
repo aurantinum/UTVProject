@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PhotoManager : Singleton<PhotoManager>
+public class PhotoManager : MonoBehaviour
 {
     [SerializeField] GameObject book;
     [SerializeField] Image[] photos;
