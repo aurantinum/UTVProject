@@ -8,11 +8,7 @@ public class PuzzleManager : Singleton<PuzzleManager>
     
     void Start()
     {
-        var gos = GameObject.FindGameObjectsWithTag("GhostProp");
-        foreach (var g in gos)
-        {
-            ghostProps.Add(g);
-        }
+        ghostProps = FindFirstObjectByType<GhostPropsManager>().ghostProps;
         CameraManager.Instance.OnGhostPropPictureTaken.AddListener(Found);
     }
 
