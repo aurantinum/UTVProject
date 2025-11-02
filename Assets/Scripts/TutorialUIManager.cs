@@ -15,6 +15,7 @@ public class TutorialUIManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        names = new();
         names.Add("Camera Instruction");
         names.Add("Interact Instruction");
         names.Add("Look Instruction");
@@ -32,7 +33,7 @@ public class TutorialUIManager : MonoBehaviour
 
         CameraManager.Instance.OnCameraPutAway.AddListener(FirstCameraPutAway);
         CameraManager.Instance.OnCameraTakenOut.AddListener(FirstCameraTakenOut);
-        FindFirstObjectByType<InteractionManager>().OnInteractableHovered.AddListener(FirstInteractHover);
+        //FindFirstObjectByType<InteractionManager>().OnInteractableHovered.AddListener(FirstInteractHover);
     }
     void FirstCameraPutAway()
     {

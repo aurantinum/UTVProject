@@ -21,10 +21,10 @@ public class GhostPropsManager : MonoBehaviour
     private List<GameObject> portraits;
     private List<GameObject> misc;
 
-    private List<GameObject> ghostProps;
+    public List<GameObject> ghostProps;
     private int numberOfGhostProps;
 
-    void Start()
+    void Awake()
     {
 
         // initialize lists

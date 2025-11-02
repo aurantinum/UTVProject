@@ -29,6 +29,7 @@ public class GhostAI : MonoBehaviour
     void Start()
     {
         wanderCenter = transform.position;
+        agent = GetComponent<NavMeshAgent>();
         StartCoroutine(nameof(WaitRoutine), 0.5f);
         CameraManager.Instance.OnGhostPictureTaken.AddListener(Freeze);
         CameraManager.Instance.OnAnyPictureTaken.AddListener(UnFreeze);
