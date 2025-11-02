@@ -76,8 +76,8 @@ public class CameraManager : Singleton<CameraManager>
         Dictionary<GameObject, int> collisions = new();
         int maxCollisions = 0; 
 
-        float marginX = Screen.width / 5;
-        float marginY = Screen.height / 5;
+        float marginX = Screen.width / 10;
+        float marginY = Screen.height / 10;
 
         newPicture.hasGhost = false;
         newPicture.hasProp = false;

@@ -40,9 +40,8 @@ public class GhostAI : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
     }
 
     public void Pause()
@@ -58,7 +57,10 @@ public class GhostAI : MonoBehaviour
         StopAllCoroutines();
         Debug.Log("Freezing the ghost");
         CurrentFreezeLength = 4;
+        
         gameObject.layer = LayerMask.NameToLayer("FrozenGhost");
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("FrozenGhost");
+        transform.GetChild(0).GetChild(0).gameObject.layer = LayerMask.NameToLayer("FrozenGhost");
         StartCoroutine(nameof(FreezeRoutine));
     }
     public void UnFreeze()
@@ -72,21 +74,24 @@ public class GhostAI : MonoBehaviour
         state = GhostState.FROZEN;
         TimeFrozen = 0f;
         Enrage += 1;
-        var baseC = GetComponent<MeshRenderer>().material.color;
+        SkinnedMeshRenderer renderer = transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
+        var baseC = renderer.material.color;
         while (TimeFrozen < CurrentFreezeLength)
         {
-            var c = GetComponent<MeshRenderer>().material.color;
+            var c = renderer.material.color;
             c.a = 1 - TimeFrozen/CurrentFreezeLength;
-            GetComponent<MeshRenderer>().material.color = c;
+            renderer.material.color = c;
             TimeFrozen += Time.deltaTime;
             transform.position = transform.position;
             transform.rotation = transform.rotation;
             agent.isStopped = true;
             yield return new WaitForEndOfFrame();
+            Debug.Log("Frozen");
             if (paused)
             {
                 while (paused)
                 {
+                    Debug.Log("Paused");
                     agent.isStopped = true;
                     yield return null;
                 }
@@ -95,8 +100,10 @@ public class GhostAI : MonoBehaviour
         }
         var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
         foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = false;
-        GetComponent<MeshRenderer>().material.color = baseC;
+        renderer.material.color = baseC;
         gameObject.layer = LayerMask.NameToLayer("Ghost");
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Ghost");
+        transform.GetChild(0).GetChild(0).gameObject.layer = LayerMask.NameToLayer("Ghost");
         StartCoroutine(nameof(WaitRoutine), 0);
     }
 
