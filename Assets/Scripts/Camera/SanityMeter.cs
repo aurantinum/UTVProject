@@ -31,6 +31,11 @@ public class SanityMeter : MonoBehaviour
         slider.value = sanity;
     }
 
+    public void SetMaxSanity(int newMax)
+    {
+        slider.maxValue = newMax;
+    }
+
     public int GetSanity()
     {
         return (int)slider.value;
