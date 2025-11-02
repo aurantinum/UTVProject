@@ -19,6 +19,7 @@ public class SanityManager : Singleton<SanityManager>
     private float _sanityDecayAmount = 1f;
     public float SanityDecayAmount { 
         get { return _sanityDecayAmount; } 
+        set { _sanityDecayAmount = value; }
     }
     private float _sanityDecayTime = 1f;
     public float SanityDecayTime {

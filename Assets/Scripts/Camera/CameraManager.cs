@@ -5,6 +5,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -18,7 +19,9 @@ public class CameraManager : MonoBehaviour
     [SerializeField] Image blackout;
     [SerializeField] Image pictureDisplay;
     List<(Sprite sprite, bool hasGhost)> pictures;
-    (Sprite sprite, bool hasGhost) newPicture;
+    public (Sprite sprite, bool hasGhost) newPicture;
+
+    public UnityEvent OnPictureTaken = new();
 
 
     enum CameraMode { Player, Camera }
@@ -158,6 +161,9 @@ public class CameraManager : MonoBehaviour
 
         // Performs the visual action of taking the picture
         StartCoroutine(TakePicture(picture));
+
+        if(newPicture.hasGhost)
+            OnPictureTaken.Invoke();
     }
 
     IEnumerator TakePicture(Sprite picture)
