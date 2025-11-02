@@ -127,7 +127,7 @@ public class CameraManager : Singleton<CameraManager>
         {
             OnCameraTakenOut.Invoke();
             controller.mouseSensitivity = 1;
-            controller.maxLookAngle = 10f;
+            controller.maxLookAngle = 180f;
             controller.zoomStepTime = 1f;
             controller.zoomFOV = 20f;
             controller.fov = 45f;
@@ -137,7 +137,7 @@ public class CameraManager : Singleton<CameraManager>
         {
             OnCameraPutAway.Invoke();
             controller.mouseSensitivity = 2;
-            controller.maxLookAngle = 50f;
+            controller.maxLookAngle = 180f;
             controller.fov = 80f;
             Camera.main.GetUniversalAdditionalCameraData().SetRenderer(0);
         }
@@ -233,7 +233,7 @@ public class CameraManager : Singleton<CameraManager>
         for (int i = 0; i <= shutterTime; i++)
         {
             blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
-            yield return null;
+            yield return new WaitForSeconds(.1f);
         }
 
         yield return new WaitForEndOfFrame();
@@ -241,7 +241,7 @@ public class CameraManager : Singleton<CameraManager>
         for (int i = shutterTime; i >= 0; i--)
         {
             blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
-            yield return null;
+            yield return new WaitForSeconds(.1f);
         }
 
         blackout.color = new Color(0, 0, 0, 0);
