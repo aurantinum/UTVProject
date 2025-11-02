@@ -6,16 +6,19 @@ public class GhostPropsManager : MonoBehaviour
     public int numberOfJars;
     public int numberOfChairs;
     public int numberOfPotPanBottles;
+    public int numberOfPortraits;
     public int numberOfMisc;
 
     public Transform jarParent;
     public Transform chairParent;
     public Transform ppbParent;
+    public Transform portraitsParent;
     public Transform miscParent;
 
     private List<GameObject> jars;
     private List<GameObject> chairs;
     private List<GameObject> potsPansBottles;
+    private List<GameObject> portraits;
     private List<GameObject> misc;
 
     private List<GameObject> ghostProps;
@@ -28,6 +31,7 @@ public class GhostPropsManager : MonoBehaviour
         jars = new List<GameObject>();
         chairs = new List<GameObject>();
         potsPansBottles = new List<GameObject>();
+        portraits = new List<GameObject>();
         misc = new List<GameObject>();
         ghostProps = new List<GameObject>();
 
@@ -35,17 +39,20 @@ public class GhostPropsManager : MonoBehaviour
         jars = CreateListFrom(jarParent);
         chairs = CreateListFrom(chairParent);
         potsPansBottles = CreateListFrom(ppbParent);
+        portraits = CreateListFrom(portraitsParent);
         misc = CreateListFrom(miscParent);
 
         // randomly select x props to be ghost props
         AddGhostProps(jars, numberOfJars);
         AddGhostProps(chairs, numberOfChairs);
         AddGhostProps(potsPansBottles, numberOfPotPanBottles);
+        AddGhostProps(portraits, numberOfPortraits);
         AddGhostProps(misc, numberOfMisc);
 
         // set the properties of the ghost props
-        numberOfGhostProps = numberOfJars + numberOfChairs + numberOfPotPanBottles + numberOfMisc;
-        print("there should be " + numberOfGhostProps + " ghost props");
+        numberOfGhostProps = numberOfJars + numberOfChairs 
+            + numberOfPotPanBottles + numberOfMisc + numberOfPortraits;
+
         for (int i = 0; i < numberOfGhostProps; i++)
         {
             GameObject ghostProp = ghostProps[i];
