@@ -67,7 +67,11 @@ public class GhostPropsManager : MonoBehaviour
             meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
             // make ping sound
-            ghostProp.AddComponent<AudioSource>();
+            AudioSource source = ghostProp.AddComponent<AudioSource>();
+            source.loop = true;
+            source.clip = ghostPing;
+            source.volume = 0.2f;
+            source.Play();
 
             // add squish
             SquishAnimation squish = ghostProp.AddComponent<SquishAnimation>();
