@@ -69,7 +69,7 @@ public class TutorialUIManager : MonoBehaviour
         yield return new WaitForSeconds(5);
         RemoveTPPChildren();
         yield return null;
-        Instantiate(tutorialObjects[names[1]], tutorialPlacementPoint);
+        Instantiate(tutorialObjects[names[2]], tutorialPlacementPoint);
         yield return new WaitForSeconds(5);
         RemoveTPPChildren();
         yield return null;
