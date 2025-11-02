@@ -9,6 +9,14 @@ public class PhotoManager : MonoBehaviour
 
     [SerializeField] CameraManager cameraManager;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            OnScrapbook();
+        }
+    }
+
     private void OnScrapbook()
     {
         if (book.activeSelf) { book.SetActive(false); return; }
