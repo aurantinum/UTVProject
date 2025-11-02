@@ -54,6 +54,7 @@ public class PauseManager : MonoBehaviour
         string currentScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentScene);
         ResumeGame();
+        paused = false;
     }
 
     public void ReturnToMainMenu()
