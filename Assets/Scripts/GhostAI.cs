@@ -30,7 +30,8 @@ public class GhostAI : MonoBehaviour
     {
         wanderCenter = transform.position;
         StartCoroutine(nameof(WaitRoutine), 0.5f);
-        FindFirstObjectByType<CameraManager>().OnPictureTaken.AddListener(Freeze);
+        CameraManager.Instance.OnGhostPictureTaken.AddListener(Freeze);
+        CameraManager.Instance.OnAnyPictureTaken.AddListener(UnFreeze);
     }
 
     //GHOST CRAWL TOWARDS PLAYER
@@ -53,9 +54,13 @@ public class GhostAI : MonoBehaviour
         StopAllCoroutines();
         CurrentFreezeLength = 4;
         gameObject.layer = LayerMask.NameToLayer("FrozenGhost");
-        var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
-        foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = true;
         StartCoroutine(nameof(FreezeRoutine));
+    }
+
+    public void UnFreeze()
+    {
+        CurrentFreezeLength = 0;
+        gameObject.layer = LayerMask.NameToLayer("Ghost");
     }
 
     IEnumerator FreezeRoutine()

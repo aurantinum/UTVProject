@@ -9,7 +9,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : Singleton<CameraManager>
 {
     [Header("Controller")]
     [SerializeField] FirstPersonController controller;
@@ -21,7 +21,9 @@ public class CameraManager : MonoBehaviour
     public List<(Sprite sprite, bool hasGhost)> pictures;
     public (Sprite sprite, bool hasGhost) newPicture;
 
-    public UnityEvent OnPictureTaken = new();
+    public UnityEvent OnAnyPictureTaken = new();
+    public UnityEvent OnGhostPictureTaken = new();
+    public UnityEvent<GameObject> OnGhostPropPictureTaken = new();
 
 
     enum CameraMode { Player, Camera }
@@ -72,7 +74,7 @@ public class CameraManager : MonoBehaviour
                     collisions[obj] = collisions.GetValueOrDefault(obj, 0) + 1;
 
                     if (hit.collider.CompareTag("Ghost")) newPicture.hasGhost = true;
-                    if (hit.collider.CompareTag("GhostProp")) PuzzleManager.Instance.OnGhostPropPictureTaken.Invoke(hit.collider.gameObject);
+                    if (hit.collider.CompareTag("GhostProp")) OnGhostPropPictureTaken.Invoke(hit.collider.gameObject);
                 }
             }
         }
@@ -161,8 +163,9 @@ public class CameraManager : MonoBehaviour
         // Performs the visual action of taking the picture
         StartCoroutine(TakePicture(picture));
 
+        OnAnyPictureTaken.Invoke();
         if(newPicture.hasGhost)
-            OnPictureTaken.Invoke();
+            OnGhostPictureTaken.Invoke();
     }
 
     IEnumerator TakePicture(Sprite picture)

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class PuzzleManager : Singleton<PuzzleManager>
 {
     public List<GameObject> ghostProps { get; private set; }
-    public UnityEvent<GameObject> OnGhostPropPictureTaken;
+    
     void Start()
     {
         var gos = GameObject.FindGameObjectsWithTag("GhostProp");
@@ -13,7 +13,7 @@ public class PuzzleManager : Singleton<PuzzleManager>
         {
             ghostProps.Add(g);
         }
-        OnGhostPropPictureTaken.AddListener(Found);
+        CameraManager.Instance.OnGhostPropPictureTaken.AddListener(Found);
     }
 
     void Found(GameObject go)
