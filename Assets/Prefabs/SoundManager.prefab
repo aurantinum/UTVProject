@@ -46,8 +46,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
   soundList:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 205287722f2b6b64583b86d65fdeeb11, type: 3}
+  - {fileID: 8300000, guid: 4a794b4684717564392d87ceb9ee92ae, type: 3}
+  - {fileID: 8300000, guid: ab8842b42fcaba04193bd8bc50c78cbf, type: 3}
+  - {fileID: 8300000, guid: ee2ebb4c4ca5fad40bdac20c3eeaae1a, type: 3}
+  - {fileID: 8300000, guid: 64ed54603ea4bdc4c930044de83bdd69, type: 3}
+  - {fileID: 8300000, guid: e93683c9c0a995d48b3f20927db0ac5a, type: 3}
+  - {fileID: 8300000, guid: 93abc65fb0a7d9a47bb2f33a425869bb, type: 3}
+  - {fileID: 8300000, guid: a7091f7b917d7e943beb06db935303c5, type: 3}
+  - {fileID: 8300000, guid: 57cb71e2ff6773d4a970f143464292c7, type: 3}
+  - {fileID: 8300000, guid: 862e32085adc29949a12fee9d1ff11a0, type: 3}
+  - {fileID: 8300000, guid: 4cdbcbd2fb3d9f8478a0fba2543f278d, type: 3}
+  - {fileID: 8300000, guid: 7ccf6ea512911ad4b8c246b12e08705e, type: 3}
+  - {fileID: 8300000, guid: 7b28f09aa052b4c4ea6538c90b77c40e, type: 3}
+  - {fileID: 8300000, guid: 2ff7baa8e5edcba47b97bbc6cc2b11f8, type: 3}
+  - {fileID: 8300000, guid: 56acb4f0a5b596442bfb479246925567, type: 3}
+  - {fileID: 8300000, guid: af6edb08e1f686041a968120f681aff9, type: 3}
+  - {fileID: 8300000, guid: 410eeb4da8e5d5e479b65b68e7b997c2, type: 3}
+  - {fileID: 8300000, guid: 2d4abed0203b15f4e8d4c72eeb4d8d16, type: 3}
+  - {fileID: 8300000, guid: 08b4ba6cd22a9ab4986a13fff034f354, type: 3}
+  - {fileID: 8300000, guid: 0045f76525dcdd34dbf31cb4fa3563a5, type: 3}
+  - {fileID: 8300000, guid: 6f3c8a80c34da8949a7c39bbfd3cbc04, type: 3}
+  - {fileID: 8300000, guid: 57f5f9fc49e59cb4ca4ae0d069d09f33, type: 3}
+  - {fileID: 8300000, guid: 45400638a56be7a4ea9c7e920d8410b6, type: 3}
+  - {fileID: 8300000, guid: 860fec7f2eed32f4397171d7aecb4d02, type: 3}
 --- !u!82 &3211394574379550609
 AudioSource:
   m_ObjectHideFlags: 0
