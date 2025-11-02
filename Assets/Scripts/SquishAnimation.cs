@@ -11,7 +11,7 @@ public class SquishAnimation : MonoBehaviour
     [SerializeField] private float squishDuration = 0.17f;
 
     [Header("Idle Settings")]
-    [SerializeField] private bool doIdleSquish;
+    [SerializeField] private bool doIdleSquish = true;
     [SerializeField] private float timeToSquish = 8f;
 
 
@@ -59,7 +59,7 @@ public class SquishAnimation : MonoBehaviour
         }
     }
 
-    public IEnumerator SquishCoroutine()
+    private IEnumerator SquishCoroutine()
     {
         // Play the particle system
         if (particleSystem) particleSystem.Play();
