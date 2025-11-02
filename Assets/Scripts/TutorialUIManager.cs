@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class TutorialUIManager : MonoBehaviour
 {
-
+    [SerializeField]
     Canvas mainUI;
+    [SerializeField]
     Transform tutorialPlacementPoint;
     Dictionary<string, GameObject> tutorialObjects;
     List<string> names;
+
+    bool FCPACalled, FCTOCalled, FIHCalled;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,9 +28,30 @@ public class TutorialUIManager : MonoBehaviour
         {
             tutorialObjects[name] = Resources.Load<GameObject>($"Tutorials/{name}");
         }
+        StartCoroutine(nameof(ShowMoveAndLookRoutine));
 
+        CameraManager.Instance.OnCameraPutAway.AddListener(FirstCameraPutAway);
+        CameraManager.Instance.OnCameraTakenOut.AddListener(FirstCameraTakenOut);
+        FindFirstObjectByType<InteractionManager>().OnInteractableHovered.AddListener(FirstInteractHover);
     }
-
+    void FirstCameraPutAway()
+    {
+        if (FCPACalled) return;
+        StartCoroutine(nameof(ShowScrapbookTutorial));
+        FCPACalled = true;
+    }
+    void FirstCameraTakenOut()
+    {
+        if (FCTOCalled) return;
+        StartCoroutine(nameof(ShowCameraTutorial));
+        FCTOCalled = true;
+    }
+    void FirstInteractHover(GameObject go)
+    {
+        if(FIHCalled) return;
+        StartCoroutine(nameof(ShowInteractTutorial));
+        FIHCalled = true;
+    }
     void RemoveTPPChildren()
     {
         for(int i = tutorialPlacementPoint.childCount - 1; i >= 0; i--)

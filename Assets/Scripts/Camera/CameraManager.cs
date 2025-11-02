@@ -32,6 +32,8 @@ public class CameraManager : Singleton<CameraManager>
     public UnityEvent OnAnyPictureTaken = new();
     public UnityEvent OnGhostPictureTaken = new();
     public UnityEvent<GameObject> OnGhostPropPictureTaken = new();
+    public UnityEvent OnCameraPutAway = new();
+    public UnityEvent OnCameraTakenOut = new();
 
 
     enum CameraMode { Player, Camera }
@@ -113,6 +115,7 @@ public class CameraManager : Singleton<CameraManager>
         // Restrict / enable camera movement
         if (isCameraMode)
         {
+            OnCameraTakenOut.Invoke();
             controller.mouseSensitivity = 1;
             controller.maxLookAngle = 10f;
             controller.zoomStepTime = 1f;
@@ -122,6 +125,7 @@ public class CameraManager : Singleton<CameraManager>
         }
         else
         {
+            OnCameraPutAway.Invoke();
             controller.mouseSensitivity = 2;
             controller.maxLookAngle = 50f;
             controller.fov = 80f;

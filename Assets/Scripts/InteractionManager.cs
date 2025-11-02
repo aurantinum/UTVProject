@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InteractionManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private bool autoInteractEveryFrame = true;
 
     public IInteractable Current { get; private set; }
+    public UnityEvent<GameObject> OnInteractableHovered { get; private set; }
 
     private void Reset()
     {
@@ -34,7 +36,7 @@ public class InteractionManager : MonoBehaviour
         {
             Debug.Log($"we hit = {hit.collider.gameObject.name}");
             if (!hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable)) return;
-
+            OnInteractableHovered.Invoke(hit.collider.gameObject);
             Current = interactable;
             if (autoInteractEveryFrame)
                 Current.PlayerInteract();
