@@ -6,43 +6,87 @@ public class GhostPropsManager : MonoBehaviour
     public int numberOfJars;
     public int numberOfChairs;
     public int numberOfPotPanBottles;
+    public int numberOfPortraits;
     public int numberOfMisc;
 
-    private int numberOfGhostProps;
+    public Transform jarParent;
+    public Transform chairParent;
+    public Transform ppbParent;
+    public Transform portraitsParent;
+    public Transform miscParent;
 
-    private List<GameObject> props;
+    private List<GameObject> jars;
+    private List<GameObject> chairs;
+    private List<GameObject> potsPansBottles;
+    private List<GameObject> portraits;
+    private List<GameObject> misc;
+
     private List<GameObject> ghostProps;
+    private int numberOfGhostProps;
 
     void Start()
     {
-        numberOfGhostProps = numberOfJars + numberOfChairs + numberOfPotPanBottles + numberOfMisc;
-        props = new List<GameObject>();
+
+        // initialize lists
+        jars = new List<GameObject>();
+        chairs = new List<GameObject>();
+        potsPansBottles = new List<GameObject>();
+        portraits = new List<GameObject>();
+        misc = new List<GameObject>();
         ghostProps = new List<GameObject>();
 
-        // create a list of all the props
-        foreach (Transform child in transform)
-        {
-            props.Add(child.gameObject);
-        }
+        // create lists of each group
+        jars = CreateListFrom(jarParent);
+        chairs = CreateListFrom(chairParent);
+        potsPansBottles = CreateListFrom(ppbParent);
+        portraits = CreateListFrom(portraitsParent);
+        misc = CreateListFrom(miscParent);
 
         // randomly select x props to be ghost props
-        for (int i = 0; i < numberOfGhostProps; i++)
-        {
-            GameObject prop = props[Random.Range(0, props.Count)];
-            if (!ghostProps.Contains(prop)) // avoid duplicates
-            {
-                ghostProps.Add(prop);
-            }
-
-        }
+        AddGhostProps(jars, numberOfJars);
+        AddGhostProps(chairs, numberOfChairs);
+        AddGhostProps(potsPansBottles, numberOfPotPanBottles);
+        AddGhostProps(portraits, numberOfPortraits);
+        AddGhostProps(misc, numberOfMisc);
 
         // set the properties of the ghost props
+        numberOfGhostProps = numberOfJars + numberOfChairs 
+            + numberOfPotPanBottles + numberOfMisc + numberOfPortraits;
+
         for (int i = 0; i < numberOfGhostProps; i++)
         {
             GameObject ghostProp = ghostProps[i];
             ghostProp.layer = LayerMask.NameToLayer("Ghost");
             ghostProp.tag = "GhostProp";
-            Debug.Log(ghostProp.name + " is invisible.");
+            Debug.Log(i+1 + ": "+ ghostProp.name + " is invisible.");
+        }
+    }
+
+    // given an empty parent, create a list of GameObjects holding its children
+    private List<GameObject> CreateListFrom(Transform parent)
+    {
+        List<GameObject> props = new List<GameObject>();
+
+        foreach (Transform child in parent)
+        {
+            props.Add(child.gameObject);
+        }
+
+        return props;
+    }
+
+    // add a given amount of objects to the ghost group
+    private void AddGhostProps(List<GameObject> group, int amt)
+    {
+        int added = 0;
+        while (added < amt) 
+        {
+            GameObject prop = group[Random.Range(0, group.Count)];
+            if (!ghostProps.Contains(prop)) // avoid duplicates
+            {
+                ghostProps.Add(prop);
+                added++;
+            }
         }
     }
 }
