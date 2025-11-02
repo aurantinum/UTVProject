@@ -2689,6 +2689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1243464246521184954}
+  - component: {fileID: 4371178944469681793}
   m_Layer: 0
   m_Name: Pills
   m_TagString: Untagged
@@ -2713,3 +2714,16 @@ Transform:
   - {fileID: 609091684200671890}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4371178944469681793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446418245199181244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbeaafb838bff1468aad22ab1d160a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SanityPill
+  sanityToRestore: 10

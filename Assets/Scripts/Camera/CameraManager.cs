@@ -129,7 +129,8 @@ public class CameraManager : Singleton<CameraManager>
         }
 
         //float value = Mathf.Lerp(3, 20, (5 - collisions.GetValueOrDefault(ghostObject, 0))/5f);
-        //vignetteMat.SetFloat("_VignettePower", value);
+        float value = 5;
+        vignetteMat.SetFloat("_VignettePower", value);
 
     }
 

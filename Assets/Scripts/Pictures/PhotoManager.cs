@@ -30,11 +30,11 @@ public class PhotoManager : MonoBehaviour
             index++;
         }
 
-        if (cameraManager.pictures.Count == photos.Length) completed = true;
+        if (cameraManager.pictures.Count == 8) completed = true;
     }
 
     public bool HasWon()
     {
-        return completed;
+        return cameraManager.pictures.Count == 8;
     }
 }
