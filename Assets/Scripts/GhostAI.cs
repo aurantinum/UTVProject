@@ -76,6 +76,8 @@ public class GhostAI : MonoBehaviour
         Enrage += 1;
         SkinnedMeshRenderer renderer = transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
         var baseC = renderer.material.color;
+        var anim = GetComponentInChildren<Animator>();
+        anim.speed = 0f;
         while (TimeFrozen < CurrentFreezeLength)
         {
             var c = renderer.material.color;
@@ -98,6 +100,7 @@ public class GhostAI : MonoBehaviour
                 agent.isStopped = false;
             }
         }
+        anim.speed = 1f;
         var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
         foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = false;
         renderer.material.color = baseC;

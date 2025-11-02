@@ -7,7 +7,7 @@ public class SquishAnimation : MonoBehaviour
     public Transform target;
 
     [Header("Squish Settings")]
-    [SerializeField, Range(0,1)] private float squishStrength = 0.17f;
+    [SerializeField, Range(0,1)] public float squishStrength = 0.17f;
     [SerializeField] private float squishDuration = 0.17f;
 
     [Header("Idle Settings")]
