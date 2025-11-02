@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GhostProp
   - Ghost
+  - SanityPillPoint
   layers:
   - Default
   - TransparentFX

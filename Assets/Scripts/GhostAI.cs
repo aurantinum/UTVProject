@@ -38,12 +38,11 @@ public class GhostAI : MonoBehaviour
         agent.speed *= .7f;
     }
 
-    //GHOST CRAWL TOWARDS PLAYER
 
-    //WEEPING ANGEL?
-
-    //GHOST CAN KILL OR CAN SHUT OFF CAMERA
-
+    // Update is called once per frame
+    void LateUpdate()
+    {
+    }
 
     public void Pause()
     {
@@ -64,7 +63,6 @@ public class GhostAI : MonoBehaviour
         transform.GetChild(0).GetChild(0).gameObject.layer = LayerMask.NameToLayer("FrozenGhost");
         StartCoroutine(nameof(FreezeRoutine));
     }
-
     public void UnFreeze()
     {
         CurrentFreezeLength = 0;
@@ -75,9 +73,13 @@ public class GhostAI : MonoBehaviour
     {
         state = GhostState.FROZEN;
         TimeFrozen = 0f;
+        var col = GetComponentInChildren<Collider>();
+        col.enabled = false;
         Enrage += 1;
         SkinnedMeshRenderer renderer = transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
         var baseC = renderer.material.color;
+        var anim = GetComponentInChildren<Animator>();
+        anim.speed = 0f;
         while (TimeFrozen < CurrentFreezeLength)
         {
             var c = renderer.material.color;
@@ -100,17 +102,20 @@ public class GhostAI : MonoBehaviour
                 agent.isStopped = false;
             }
         }
+        anim.speed = 1f;
         var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
         foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = false;
         renderer.material.color = baseC;
         gameObject.layer = LayerMask.NameToLayer("Ghost");
         transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Ghost");
         transform.GetChild(0).GetChild(0).gameObject.layer = LayerMask.NameToLayer("Ghost");
+        col.enabled = true;
         StartCoroutine(nameof(WaitRoutine), 0);
     }
 
     IEnumerator MeddleRoutine(float meddleRadius)
     {
+        float timePassed = 0;
         state = GhostState.MEDDLE;
         var ni = FindNearestInteractable(meddleRadius);
         if (ni != null)
@@ -119,8 +124,9 @@ public class GhostAI : MonoBehaviour
             float curDistance = diff.sqrMagnitude;
             agent.isStopped = false;
             agent.destination = ni.position;
-            while (curDistance > .5f)
+            while (curDistance > .5f && timePassed < 5)
             {
+                timePassed += Time.deltaTime;
                 diff = ni.position - transform.position;
                 curDistance = diff.sqrMagnitude;
                 agent.destination = ni.position;
@@ -158,7 +164,7 @@ public class GhostAI : MonoBehaviour
                 yield return null;
             }
         }
-        if (Random.Range(0, 100) > 50 + Enrage)//lower amount to wander, as enrage increases the chance to meddle does too.
+        if (Random.Range(0, (SanityManager.Instance.Sanity/SanityManager.Instance.StartingSanity) * 100) > 50 + Enrage)//lower amount to wander, as enrage increases the chance to meddle does too.
         {
             StartCoroutine(nameof(WanderRoutine));
         }
@@ -177,14 +183,16 @@ public class GhostAI : MonoBehaviour
     
     IEnumerator WanderRoutine()
     {
+        float timePassed = 0;
         Vector3 wanderPos = (new Vector3(Random.value, 0, Random.value).normalized * Random.Range(-WanderRadius, WanderRadius)) + 
             PuzzleManager.Instance.ghostProps[Random.Range(0, PuzzleManager.Instance.ghostProps.Count)].transform.position;
         state = GhostState.WANDER;
         agent.isStopped = false;
         agent.destination = wanderPos;
-        while (Vector3.Distance(transform.position, agent.destination) > 0.5f)
+        while (Vector3.Distance(transform.position, agent.destination) > 0.5f && timePassed < 5)
         {
             yield return null;
+            timePassed += Time.deltaTime;
             if (paused)
             {
                 while (paused)
@@ -201,7 +209,6 @@ public class GhostAI : MonoBehaviour
     IEnumerator HuntRoutine(float huntTime)
     {
         state = GhostState.HUNT;
-        
         var pt = Player.Instance.transform;
         float timer = 0;
         Vector3 diff = pt.position - transform.position;
