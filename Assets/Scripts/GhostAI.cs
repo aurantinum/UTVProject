@@ -21,7 +21,7 @@ public class GhostAI : MonoBehaviour
     private NavMeshAgent agent;
     public float Enrage = 0;
     public Vector3 wanderCenter;
-    public float WanderRadius = 8;
+    public float WanderRadius = 1;
     public float TimeFrozen {  get; private set; }
     public float CurrentFreezeLength {  get; private set; }
 
@@ -30,7 +30,8 @@ public class GhostAI : MonoBehaviour
     {
         wanderCenter = transform.position;
         StartCoroutine(nameof(WaitRoutine), 0.5f);
-        FindFirstObjectByType<CameraManager>().OnPictureTaken.AddListener(Freeze);
+        CameraManager.Instance.OnGhostPictureTaken.AddListener(Freeze);
+        CameraManager.Instance.OnAnyPictureTaken.AddListener(UnFreeze);
     }
 
     //GHOST CRAWL TOWARDS PLAYER
@@ -53,9 +54,13 @@ public class GhostAI : MonoBehaviour
         StopAllCoroutines();
         CurrentFreezeLength = 4;
         gameObject.layer = LayerMask.NameToLayer("FrozenGhost");
-        var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
-        foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = true;
         StartCoroutine(nameof(FreezeRoutine));
+    }
+
+    public void UnFreeze()
+    {
+        CurrentFreezeLength = 0;
+        gameObject.layer = LayerMask.NameToLayer("Ghost");
     }
 
     IEnumerator FreezeRoutine()
@@ -133,7 +138,8 @@ public class GhostAI : MonoBehaviour
     
     IEnumerator WanderRoutine()
     {
-        Vector3 wanderPos = (new Vector3(Random.value, 0, Random.value).normalized * Random.Range(-WanderRadius, WanderRadius)) + wanderCenter;
+        Vector3 wanderPos = (new Vector3(Random.value, 0, Random.value).normalized * Random.Range(-WanderRadius, WanderRadius)) + 
+            PuzzleManager.Instance.ghostProps[Random.Range(0, PuzzleManager.Instance.ghostProps.Count)].transform.position;
         state = GhostState.WANDER;
         agent.isStopped = false;
         agent.destination = wanderPos;

@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Ghost
   - GhostProp
   layers:
   - Default
@@ -14,7 +13,7 @@ TagManager:
   - Water
   - UI
   - Ghost
-  - Player
+  - Interactables
   - 
   - 
   - 
