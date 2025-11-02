@@ -22,6 +22,7 @@ public class CameraManager : Singleton<CameraManager>
     [SerializeField] RenderTexture targetTexture;
     [SerializeField] Image blackout;
     [SerializeField] Image pictureDisplay;
+    [SerializeField] Material vignetteMat;
     public Dictionary<GameObject, (Sprite sprite, bool hasGhost, bool hasProp)> pictures;
     public (Sprite sprite, bool hasGhost, bool hasProp) newPicture;
     GameObject currentProp;
@@ -37,6 +38,8 @@ public class CameraManager : Singleton<CameraManager>
 
     private GhostAI ghostAI;
 
+    GameObject ghostObject;
+
 
     enum CameraMode { Player, Camera }
 
@@ -46,15 +49,17 @@ public class CameraManager : Singleton<CameraManager>
     [Header("Public Booleans")]
     public bool isCameraMode { get; private set; }
 
-    [Header("Private Booleans")]
+    [Header("Private Variables")]
     [SerializeField] bool _doDebugLog;
     bool takingPicture;
+    float waitForUpdate;
 
     private void Awake()
     {
         UpdateCameras(CameraMode.Player);
         pictures = new();
         ghostAI = FindAnyObjectByType<GhostAI>();
+        ghostObject = GameObject.FindGameObjectWithTag("Ghost");
     }
 
     private void Update()
@@ -69,12 +74,21 @@ public class CameraManager : Singleton<CameraManager>
         {
             OnCapture();
         }
+
+        // Every five seconds, update what objects are in view 
+        // so that we can do vignette stuff
+        if (waitForUpdate > 2)
+        {
+            FindObjectInView();
+            waitForUpdate = 0;
+        }
+        waitForUpdate += Time.deltaTime;
     }
 
     void FindObjectInView()
     {
         Dictionary<GameObject, int> collisions = new();
-        int maxCollisions = 0; 
+        int maxCollisions = 0;
 
         float marginX = Screen.width / 10;
         float marginY = Screen.height / 10;
@@ -107,6 +121,14 @@ public class CameraManager : Singleton<CameraManager>
                     }
                 }
             }
+        }
+
+        if (newPicture.hasGhost)
+        {
+            float t = Mathf.Lerp(0, 5, collisions[ghostObject])/5f;
+            float intensity = Mathf.Lerp(-2.5f, 4, t);
+            float factor = Mathf.Pow(2, intensity);
+            vignetteMat.color = new Color(vignetteMat.color.r * factor, vignetteMat.color.g * factor, vignetteMat.color.b * factor);
         }
 
     }

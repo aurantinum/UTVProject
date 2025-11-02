@@ -45,12 +45,6 @@ public class GhostAI : MonoBehaviour
     //GHOST CAN KILL OR CAN SHUT OFF CAMERA
 
 
-
-    // Update is called once per frame
-    void LateUpdate()
-    {
-    }
-
     public void Pause()
     {
         paused = true;
