@@ -45,7 +45,7 @@ public class CameraManager : Singleton<CameraManager>
     public bool isCameraMode { get; private set; }
 
     [Header("Private Booleans")]
-    bool _doDebugLog;
+    [SerializeField] bool _doDebugLog;
     bool takingPicture;
     bool prevIsZoomed;
 
