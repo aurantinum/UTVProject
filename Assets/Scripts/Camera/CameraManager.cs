@@ -172,6 +172,7 @@ public class CameraManager : Singleton<CameraManager>
 
         // Set up for capturing
         photoCamera.gameObject.transform.position = Camera.main.transform.position;
+        photoCamera.gameObject.transform.rotation = Camera.main.transform.rotation;
         takingPicture = true;
         Camera.main.targetTexture = targetTexture;
         controller.crosshairObject.gameObject.SetActive(false);
