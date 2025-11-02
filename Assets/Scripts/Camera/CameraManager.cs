@@ -32,6 +32,10 @@ public class CameraManager : Singleton<CameraManager>
     public UnityEvent OnAnyPictureTaken = new();
     public UnityEvent OnGhostPictureTaken = new();
     public UnityEvent<GameObject> OnGhostPropPictureTaken = new();
+    public UnityEvent OnCameraPutAway = new();
+    public UnityEvent OnCameraTakenOut = new();
+
+    private GhostAI ghostAI;
 
 
     enum CameraMode { Player, Camera }
@@ -43,28 +47,28 @@ public class CameraManager : Singleton<CameraManager>
     public bool isCameraMode { get; private set; }
 
     [Header("Private Booleans")]
-    bool _doDebugLog;
+    [SerializeField] bool _doDebugLog;
     bool takingPicture;
-    bool prevIsZoomed;
-
-    float frameCount;
 
     private void Awake()
     {
         UpdateCameras(CameraMode.Player);
         pictures = new();
+        ghostAI = FindAnyObjectByType<GhostAI>();
     }
 
     private void Update()
     {
-        if (isCameraMode && frameCount > 1)
+        // Fallback input check
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            FindObjectInView();
-            frameCount = 0;
+            OnSwitch();
         }
 
-        frameCount += Time.deltaTime;
-        prevIsZoomed = controller.isZoomed;
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnCapture();
+        }
     }
 
     void FindObjectInView()
@@ -121,6 +125,7 @@ public class CameraManager : Singleton<CameraManager>
         // Restrict / enable camera movement
         if (isCameraMode)
         {
+            OnCameraTakenOut.Invoke();
             controller.mouseSensitivity = 1;
             controller.maxLookAngle = 10f;
             controller.zoomStepTime = 1f;
@@ -130,6 +135,7 @@ public class CameraManager : Singleton<CameraManager>
         }
         else
         {
+            OnCameraPutAway.Invoke();
             controller.mouseSensitivity = 2;
             controller.maxLookAngle = 50f;
             controller.fov = 80f;
@@ -159,9 +165,14 @@ public class CameraManager : Singleton<CameraManager>
     {
         if (_doDebugLog) Debug.Log("Capturing Picture");
 
+        ghostAI.Pause();
+        FindObjectInView();
+
         if (takingPicture || !isCameraMode) return;
 
         // Set up for capturing
+        photoCamera.gameObject.transform.position = Camera.main.transform.position;
+        photoCamera.gameObject.transform.rotation = Camera.main.transform.rotation;
         takingPicture = true;
         Camera.main.targetTexture = targetTexture;
         controller.crosshairObject.gameObject.SetActive(false);
@@ -207,6 +218,7 @@ public class CameraManager : Singleton<CameraManager>
         controller.enableZoom = false;
         controller.UpdateStart();
 
+        //SoundManager.PlaySound(SoundType.CameraClick);
         // Check win condition
         bool won = photoManager.HasWon();
 
@@ -215,15 +227,15 @@ public class CameraManager : Singleton<CameraManager>
             yield break; 
         }
 
-        for (int i = 0; i < shutterTime; i++)
+        for (int i = 0; i <= shutterTime; i++)
         {
             blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
             yield return null;
         }
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForEndOfFrame();
 
-        for (int i = shutterTime; i > 0; i--)
+        for (int i = shutterTime; i >= 0; i--)
         {
             blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
             yield return null;
@@ -239,6 +251,7 @@ public class CameraManager : Singleton<CameraManager>
         controller.cameraCanMove = true;
         controller.enableZoom = true;
         controller.UpdateStart();
+        ghostAI.Unpause();
 
 
         // Turn off camera

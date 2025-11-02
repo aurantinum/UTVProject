@@ -8,11 +8,7 @@ public class PuzzleManager : Singleton<PuzzleManager>
     
     void Start()
     {
-        var gos = GameObject.FindGameObjectsWithTag("GhostProp");
-        foreach (var g in gos)
-        {
-            ghostProps.Add(g);
-        }
+        ghostProps = FindFirstObjectByType<GhostPropsManager>().ghostProps;
         CameraManager.Instance.OnGhostPropPictureTaken.AddListener(Found);
     }
 
@@ -20,6 +16,8 @@ public class PuzzleManager : Singleton<PuzzleManager>
     {
         ghostProps.Remove(go);
         go.layer = LayerMask.NameToLayer("Default");
+        MeshRenderer meshRenderer = go.GetComponent<MeshRenderer>();
+        meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         go.GetComponent<Animator>()/*play animation after we return to normal view*/;
     }
    

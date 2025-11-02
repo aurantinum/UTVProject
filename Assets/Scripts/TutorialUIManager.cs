@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class TutorialUIManager : MonoBehaviour
 {
-
+    [SerializeField]
     Canvas mainUI;
+    [SerializeField]
     Transform tutorialPlacementPoint;
     Dictionary<string, GameObject> tutorialObjects;
     List<string> names;
+
+    bool FCPACalled, FCTOCalled, FIHCalled;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        names = new();
         names.Add("Camera Instruction");
         names.Add("Interact Instruction");
         names.Add("Look Instruction");
@@ -25,14 +29,35 @@ public class TutorialUIManager : MonoBehaviour
         {
             tutorialObjects[name] = Resources.Load<GameObject>($"Tutorials/{name}");
         }
+        StartCoroutine(nameof(ShowMoveAndLookRoutine));
 
+        CameraManager.Instance.OnCameraPutAway.AddListener(FirstCameraPutAway);
+        CameraManager.Instance.OnCameraTakenOut.AddListener(FirstCameraTakenOut);
+        //FindFirstObjectByType<InteractionManager>().OnInteractableHovered.AddListener(FirstInteractHover);
     }
-
+    void FirstCameraPutAway()
+    {
+        if (FCPACalled) return;
+        StartCoroutine(nameof(ShowScrapbookTutorial));
+        FCPACalled = true;
+    }
+    void FirstCameraTakenOut()
+    {
+        if (FCTOCalled) return;
+        StartCoroutine(nameof(ShowCameraTutorial));
+        FCTOCalled = true;
+    }
+    void FirstInteractHover(GameObject go)
+    {
+        if(FIHCalled) return;
+        StartCoroutine(nameof(ShowInteractTutorial));
+        FIHCalled = true;
+    }
     void RemoveTPPChildren()
     {
         for(int i = tutorialPlacementPoint.childCount - 1; i >= 0; i--)
         {
-            Destroy(tutorialPlacementPoint.GetChild(i));
+            Destroy(tutorialPlacementPoint.GetChild(i).gameObject);
         }
     }
 
@@ -40,16 +65,16 @@ public class TutorialUIManager : MonoBehaviour
     {
         RemoveTPPChildren();
         yield return null;
-        Instantiate(tutorialObjects[names[0]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
-        RemoveTPPChildren();
-        yield return null;
         Instantiate(tutorialObjects[names[3]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
         yield return null;
-        Instantiate(tutorialObjects[names[1]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        Instantiate(tutorialObjects[names[2]], tutorialPlacementPoint);
+        yield return new WaitForSeconds(5);
+        RemoveTPPChildren();
+        yield return null;
+        Instantiate(tutorialObjects[names[0]], tutorialPlacementPoint);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
     }
 
@@ -58,7 +83,7 @@ public class TutorialUIManager : MonoBehaviour
         RemoveTPPChildren();
         yield return null;
         Instantiate(tutorialObjects[names[1]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
     }
 
@@ -67,11 +92,11 @@ public class TutorialUIManager : MonoBehaviour
         RemoveTPPChildren();
         yield return null;
         Instantiate(tutorialObjects[names[6]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
         yield return null;
         Instantiate(tutorialObjects[names[5]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
     }
 
@@ -80,7 +105,7 @@ public class TutorialUIManager : MonoBehaviour
         RemoveTPPChildren();
         yield return null;
         Instantiate(tutorialObjects[names[4]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
     }
 }
