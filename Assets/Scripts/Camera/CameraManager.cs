@@ -18,7 +18,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] RenderTexture targetTexture;
     [SerializeField] Image blackout;
     [SerializeField] Image pictureDisplay;
-    List<(Sprite sprite, bool hasGhost)> pictures;
+    public List<(Sprite sprite, bool hasGhost)> pictures;
     public (Sprite sprite, bool hasGhost) newPicture;
 
     public UnityEvent OnPictureTaken = new();
@@ -72,6 +72,7 @@ public class CameraManager : MonoBehaviour
                     collisions[obj] = collisions.GetValueOrDefault(obj, 0) + 1;
 
                     if (hit.collider.CompareTag("Ghost")) newPicture.hasGhost = true;
+                    if (hit.collider.CompareTag("GhostProp")) PuzzleManager.Instance.OnGhostPropPictureTaken.Invoke(hit.collider.gameObject);
                 }
             }
         }
