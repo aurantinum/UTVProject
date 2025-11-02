@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.SceneView;
 
 public class WinManager : Singleton<WinManager>
 {

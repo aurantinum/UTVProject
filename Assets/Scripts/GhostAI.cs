@@ -14,6 +14,7 @@ public class GhostAI : MonoBehaviour
         MEDDLE,
         HUNT,
         FROZEN,
+        TEMPFROZEN,
     }
 
     private GhostState state;
@@ -24,6 +25,7 @@ public class GhostAI : MonoBehaviour
     public float WanderRadius = 1;
     public float TimeFrozen {  get; private set; }
     public float CurrentFreezeLength {  get; private set; }
+    bool paused = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,10 +51,18 @@ public class GhostAI : MonoBehaviour
         
     }
 
-
+    public void Pause()
+    {
+        paused = true;
+    }
+    public void Unpause()
+    {
+        paused = false;
+    }
     public void Freeze()
     {
         StopAllCoroutines();
+        Debug.Log("Freezing the ghost");
         CurrentFreezeLength = 4;
         gameObject.layer = LayerMask.NameToLayer("FrozenGhost");
         StartCoroutine(nameof(FreezeRoutine));
@@ -80,6 +90,15 @@ public class GhostAI : MonoBehaviour
             transform.rotation = transform.rotation;
             agent.isStopped = true;
             yield return new WaitForEndOfFrame();
+            if (paused)
+            {
+                while (paused)
+                {
+                    agent.isStopped = true;
+                    yield return null;
+                }
+                agent.isStopped = false;
+            }
         }
         var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
         foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = false;
@@ -103,11 +122,20 @@ public class GhostAI : MonoBehaviour
                 diff = ni.position - transform.position;
                 curDistance = diff.sqrMagnitude;
                 agent.destination = ni.position;
-                yield return null;
+                yield return new WaitForEndOfFrame();
+                if (paused)
+                {
+                    while (paused)
+                    {
+                        agent.isStopped = true;
+                        yield return null;
+                    }
+                    agent.isStopped = false;
+                }
             }
             (ni as IInteractable).GhostInteract();
             yield return new WaitForSeconds(0.5f);
-            StartCoroutine(nameof(WaitRoutine), .15f);
+            StartCoroutine(nameof(WaitRoutine), 1.5f);
         }
         else
         {
@@ -120,6 +148,14 @@ public class GhostAI : MonoBehaviour
         state = GhostState.WAIT;
         agent.isStopped = true;
         yield return new WaitForSeconds(waitTime);
+        if (paused)
+        {
+            while (paused)
+            {
+                agent.isStopped = true;
+                yield return null;
+            }
+        }
         if (Random.Range(0, 100) > 50 + Enrage)//lower amount to wander, as enrage increases the chance to meddle does too.
         {
             StartCoroutine(nameof(WanderRoutine));
@@ -147,6 +183,15 @@ public class GhostAI : MonoBehaviour
         while (Vector3.Distance(transform.position, agent.destination) > 0.5f)
         {
             yield return null;
+            if (paused)
+            {
+                while (paused)
+                {
+                    agent.isStopped = true;
+                    yield return null;
+                }
+                agent.isStopped = false;
+            }
         }
         StartCoroutine(nameof(WaitRoutine), 1);
     }
@@ -168,12 +213,21 @@ public class GhostAI : MonoBehaviour
             curDistance = diff.sqrMagnitude;
             agent.destination = pt.position;
             yield return new WaitForEndOfFrame();
+            if (paused)
+            {
+                while (paused)
+                {
+                    agent.isStopped = true;
+                    yield return null;
+                }
+                agent.isStopped = false;
+            }
         }
         if(curDistance < .5f)
         {
             Player.Instance.OnAttacked();
         }
-        StartCoroutine(nameof(WaitRoutine), 0.25f);
+        StartCoroutine(nameof(WaitRoutine), 2.5f);
 
     }
 
