@@ -4,7 +4,7 @@ using UnityEngine;
 public class SquishAnimation : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform target;
+    public Transform target;
 
     [Header("Squish Settings")]
     [SerializeField, Range(0,1)] private float squishStrength = 0.17f;
@@ -29,6 +29,7 @@ public class SquishAnimation : MonoBehaviour
     private void Awake()
     {
         originalScale = target.localScale;
+        AddComp
     }
 
     private void Update()
