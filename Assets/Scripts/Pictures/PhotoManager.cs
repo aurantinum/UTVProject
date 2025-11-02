@@ -15,13 +15,18 @@ public class PhotoManager : MonoBehaviour
         book.SetActive(true);
 
         int index = 0;
-        foreach (var picture in cameraManager.pictures)
+        foreach (var pictureValue in cameraManager.pictures.Values)
         {
-            photos[index].sprite = picture.sprite;
+            photos[index].sprite = pictureValue.sprite;
 
             index++;
         }
 
         if (cameraManager.pictures.Count == photos.Length) completed = true;
+    }
+
+    public bool HasWon()
+    {
+        return completed;
     }
 }

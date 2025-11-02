@@ -16,13 +16,18 @@ public class CameraManager : Singleton<CameraManager>
     [Header("Controller")]
     [SerializeField] FirstPersonController controller;
     [SerializeField] Camera photoCamera;
+    [SerializeField] PhotoManager photoManager;
 
     [Header("Images")]
     [SerializeField] RenderTexture targetTexture;
     [SerializeField] Image blackout;
     [SerializeField] Image pictureDisplay;
-    public List<(Sprite sprite, bool hasGhost, bool hasProp, GameObject currentProp)> pictures;
-    public (Sprite sprite, bool hasGhost, bool hasProp, GameObject currentProp) newPicture;
+    public Dictionary<GameObject, (Sprite sprite, bool hasGhost, bool hasProp)> pictures;
+    public (Sprite sprite, bool hasGhost, bool hasProp) newPicture;
+    GameObject currentProp;
+
+    [Header("Controls")]
+    [SerializeField] int shutterTime = 5;
 
     public UnityEvent OnAnyPictureTaken = new();
     public UnityEvent OnGhostPictureTaken = new();
@@ -42,6 +47,8 @@ public class CameraManager : Singleton<CameraManager>
     bool takingPicture;
     bool prevIsZoomed;
 
+    float frameCount;
+
     private void Awake()
     {
         UpdateCameras(CameraMode.Player);
@@ -50,7 +57,13 @@ public class CameraManager : Singleton<CameraManager>
 
     private void Update()
     {
-        if (isCameraMode) FindObjectInView();
+        if (isCameraMode && frameCount > 1)
+        {
+            FindObjectInView();
+            frameCount = 0;
+        }
+
+        frameCount += Time.deltaTime;
         prevIsZoomed = controller.isZoomed;
     }
 
@@ -59,8 +72,8 @@ public class CameraManager : Singleton<CameraManager>
         Dictionary<GameObject, int> collisions = new();
         int maxCollisions = 0; 
 
-        float marginX = 5;
-        float marginY = 5;
+        float marginX = Screen.width / 5;
+        float marginY = Screen.height / 5;
 
         newPicture.hasGhost = false;
         newPicture.hasProp = false;
@@ -85,7 +98,7 @@ public class CameraManager : Singleton<CameraManager>
                         if (collisions[obj] > maxCollisions)
                         {
                             maxCollisions = collisions[obj];
-                            newPicture.currentProp = obj;
+                            currentProp = obj;
                         }
                     }
                 }
@@ -178,10 +191,11 @@ public class CameraManager : Singleton<CameraManager>
         if (newPicture.hasGhost)
             OnGhostPictureTaken.Invoke();
 
-        else if (newPicture.hasProp)
+        // Only adds a picture if the prop hasn't been discovered
+        else if (newPicture.hasProp && !pictures.ContainsKey(currentProp))
         {
-            OnGhostPropPictureTaken.Invoke(newPicture.currentProp);
-            pictures.Add(newPicture);
+            OnGhostPropPictureTaken.Invoke(currentProp);
+            pictures[currentProp] = newPicture;
             newPicture = new();
         }
     }
@@ -193,12 +207,28 @@ public class CameraManager : Singleton<CameraManager>
         controller.enableZoom = false;
         controller.UpdateStart();
 
-        for (float i = 0; i <= 1; i += 0.1f)
-        {
-            if (i < 0.5f) blackout.color = new Color(0, 0, 0, i * 2);
-            else blackout.color = new Color(0, 0, 0, (1 - i) * 2);
-            yield return new WaitForEndOfFrame();
+        // Check win condition
+        bool won = photoManager.HasWon();
+
+        if (won) { 
+            WinManager.Instance.WinGame(controller, shutterTime);
+            yield break; 
         }
+
+        for (int i = 0; i < shutterTime; i++)
+        {
+            blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1);
+
+        for (int i = shutterTime; i > 0; i--)
+        {
+            blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
+            yield return null;
+        }
+
         blackout.color = new Color(0, 0, 0, 0);
 
         // Switch back to normal camera but add image on screen
@@ -209,6 +239,7 @@ public class CameraManager : Singleton<CameraManager>
         controller.cameraCanMove = true;
         controller.enableZoom = true;
         controller.UpdateStart();
+
 
         // Turn off camera
         UpdateCameras(CameraMode.Player);
