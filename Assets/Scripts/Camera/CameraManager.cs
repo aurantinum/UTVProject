@@ -53,12 +53,11 @@ public class CameraManager : MonoBehaviour
     {
         Dictionary<GameObject, int> collisions = new();
 
-        float marginX = 1;
-        float marginY = 1;
+        float marginX = 5;
+        float marginY = 5;
 
         newPicture.hasGhost = false;
 
-        /*
         for (float x=0; x < Screen.width; x += marginX)
         {
             for (float y=0; y < Screen.height; y += marginY)
@@ -76,7 +75,6 @@ public class CameraManager : MonoBehaviour
                 }
             }
         }
-        */
         
 
         controller.crosshairObject.color = Color.black;
