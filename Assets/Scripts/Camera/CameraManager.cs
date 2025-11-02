@@ -5,6 +5,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -17,8 +18,10 @@ public class CameraManager : MonoBehaviour
     [SerializeField] RenderTexture targetTexture;
     [SerializeField] Image blackout;
     [SerializeField] Image pictureDisplay;
-    List<(Sprite sprite, bool hasGhost)> pictures;
-    (Sprite sprite, bool hasGhost) newPicture;
+    public List<(Sprite sprite, bool hasGhost)> pictures;
+    public (Sprite sprite, bool hasGhost) newPicture;
+
+    public UnityEvent OnPictureTaken = new();
 
 
     enum CameraMode { Player, Camera }
@@ -50,12 +53,11 @@ public class CameraManager : MonoBehaviour
     {
         Dictionary<GameObject, int> collisions = new();
 
-        float marginX = 1;
-        float marginY = 1;
+        float marginX = 5;
+        float marginY = 5;
 
         newPicture.hasGhost = false;
 
-        /*
         for (float x=0; x < Screen.width; x += marginX)
         {
             for (float y=0; y < Screen.height; y += marginY)
@@ -70,10 +72,10 @@ public class CameraManager : MonoBehaviour
                     collisions[obj] = collisions.GetValueOrDefault(obj, 0) + 1;
 
                     if (hit.collider.CompareTag("Ghost")) newPicture.hasGhost = true;
+                    if (hit.collider.CompareTag("GhostProp")) PuzzleManager.Instance.OnGhostPropPictureTaken.Invoke(hit.collider.gameObject);
                 }
             }
         }
-        */
         
 
         controller.crosshairObject.color = Color.black;
@@ -158,6 +160,9 @@ public class CameraManager : MonoBehaviour
 
         // Performs the visual action of taking the picture
         StartCoroutine(TakePicture(picture));
+
+        if(newPicture.hasGhost)
+            OnPictureTaken.Invoke();
     }
 
     IEnumerator TakePicture(Sprite picture)
