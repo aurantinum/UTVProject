@@ -1,0 +1,86 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TutorialUIManager : MonoBehaviour
+{
+
+    Canvas mainUI;
+    Transform tutorialPlacementPoint;
+    Dictionary<string, GameObject> tutorialObjects;
+    List<string> names;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        names.Add("Camera Instruction");
+        names.Add("Interact Instruction");
+        names.Add("Look Instruction");
+        names.Add("Move Instruction");
+        names.Add("Scrapbook Instruction");
+        names.Add("Take Photo Instruction");
+        names.Add("Zoom Instruction");
+
+        tutorialObjects = new Dictionary<string, GameObject>();
+        foreach (string name in names)
+        {
+            tutorialObjects[name] = Resources.Load<GameObject>($"Tutorials/{name}");
+        }
+
+    }
+
+    void RemoveTPPChildren()
+    {
+        for(int i = tutorialPlacementPoint.childCount - 1; i >= 0; i--)
+        {
+            Destroy(tutorialPlacementPoint.GetChild(i));
+        }
+    }
+
+    IEnumerator ShowMoveAndLookRoutine()
+    {
+        RemoveTPPChildren();
+        yield return null;
+        Instantiate(tutorialObjects[names[0]], tutorialPlacementPoint);
+        yield return new WaitForSeconds(3);
+        RemoveTPPChildren();
+        yield return null;
+        Instantiate(tutorialObjects[names[3]], tutorialPlacementPoint);
+        yield return new WaitForSeconds(3);
+        RemoveTPPChildren();
+        yield return null;
+        Instantiate(tutorialObjects[names[1]], tutorialPlacementPoint);
+        yield return new WaitForSeconds(3);
+        RemoveTPPChildren();
+    }
+
+    IEnumerator ShowInteractTutorial()
+    {
+        RemoveTPPChildren();
+        yield return null;
+        Instantiate(tutorialObjects[names[1]], tutorialPlacementPoint);
+        yield return new WaitForSeconds(3);
+        RemoveTPPChildren();
+    }
+
+    IEnumerator ShowCameraTutorial()
+    {
+        RemoveTPPChildren();
+        yield return null;
+        Instantiate(tutorialObjects[names[6]], tutorialPlacementPoint);
+        yield return new WaitForSeconds(3);
+        RemoveTPPChildren();
+        yield return null;
+        Instantiate(tutorialObjects[names[5]], tutorialPlacementPoint);
+        yield return new WaitForSeconds(3);
+        RemoveTPPChildren();
+    }
+
+    IEnumerator ShowScrapbookTutorial()
+    {
+        RemoveTPPChildren();
+        yield return null;
+        Instantiate(tutorialObjects[names[4]], tutorialPlacementPoint);
+        yield return new WaitForSeconds(3);
+        RemoveTPPChildren();
+    }
+}

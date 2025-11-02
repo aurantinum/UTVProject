@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+
 
 public class PuzzleManager : Singleton<PuzzleManager>
 {
@@ -19,6 +19,7 @@ public class PuzzleManager : Singleton<PuzzleManager>
     void Found(GameObject go)
     {
         ghostProps.Remove(go);
+        go.layer = LayerMask.NameToLayer("Default");
         go.GetComponent<Animator>()/*play animation after we return to normal view*/;
     }
    

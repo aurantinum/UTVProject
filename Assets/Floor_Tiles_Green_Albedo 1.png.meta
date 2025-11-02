@@ -1,0 +1,1982 @@
+fileFormatVersion: 2
+guid: 5489882ca05340f419ba200d9e86c15f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 925
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a374da31a6590f04580589ddb7ee680c
+      internalID: -1414158110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_1
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 937
+        width: 77
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90bd8d2d80cdb6e4ea197978e2ff48b0
+      internalID: 1736141605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 930
+        width: 92
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c254c5761f51c3e4c929944857b452b9
+      internalID: -270613756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_3
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 921
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c526796f3ac0ca4ab613720f875457f
+      internalID: -1044018222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_4
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 939
+        width: 85
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f537de499ff4ea43a1132b7d82d05c1
+      internalID: -361722770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_5
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 921
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a72f177e7052f4a830efef54ecdbb9
+      internalID: -1296578357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_6
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 921
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168339c207047f548b941c4b1b307689
+      internalID: -861720452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_7
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 921
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a65e25e1ef27f4340b169b34ba451e64
+      internalID: -1036315897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_8
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 921
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ac106026b80105469ee12ca8b3d1fe0
+      internalID: 2066906440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 818
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94013733606570540b454d783740adc8
+      internalID: -107291512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_10
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 818
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f7a97f671323c4b813fd84110229cf
+      internalID: 157832972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_11
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 818
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 275d5383d43ffb543a1a6b0cb164764d
+      internalID: -1332628349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_12
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 832
+        width: 84
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2015811e9ceb73747b1246d854e7a92c
+      internalID: 2049817797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_13
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 818
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39eb2f64c06debf4ca54ddd5436c2753
+      internalID: 398760643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_14
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 818
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc2118f2952588418dc055cb2d1e49a
+      internalID: 268445774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_15
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 818
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d1931b664e66be43b1e612d5cb75094
+      internalID: -1237508272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_16
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 818
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fecffbb28bc61ac4eb336700d16f2ada
+      internalID: 305299568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_17
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 818
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4910ee0e06edc664a8c502e01dd6957d
+      internalID: -2001889705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 715
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5bdd070018bf084cbd4c42416427ab2
+      internalID: -1094002277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_19
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 715
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb04564dc884334692c23ddb35b55fc
+      internalID: 1349749714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_20
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 715
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d25a835e5d3a0246891015e85222a4e
+      internalID: 1813520601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_21
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 715
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477cd01129793e24ba8107bdb6dd0ed9
+      internalID: 208148410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_22
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 715
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2719333c5339654e9072323ccfaef95
+      internalID: 312002720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_23
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 715
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f72a902e8f68f664381b6cda3616b8a2
+      internalID: -1292832641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_24
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 715
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71002de994825404fb070a7200b2f911
+      internalID: -1625292415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_25
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 715
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b72a158e6339340a91c03f55e0477d
+      internalID: 984752380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_26
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 715
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db33d1c51afbea94aab1acc9ae94e894
+      internalID: -1527544928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 612
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4f6f61173a053c4fb199d492c7dbe28
+      internalID: -1834623948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_28
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 612
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca7faea79747f1d4f996946f3c2be4d1
+      internalID: -2119529659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_29
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 612
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3440566222c8a84ebf8e50ad0597d4d
+      internalID: -172559931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_30
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 612
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ff6fcc490654f438077c33fa9659f8
+      internalID: 507498131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_31
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 612
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272a4bfe80721d0448e72b141b998a49
+      internalID: -1524033161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_32
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 612
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac7cae489906874d8fa9635ffdddc4f
+      internalID: -1263843285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_33
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 612
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68e05e7e4b07084fa93ab52d48be962
+      internalID: 1219627308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_34
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 612
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aece52d410de05f4eb14d61671bfb2db
+      internalID: 806621170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_35
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 612
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7683ba0e068a940b1d9e408b3eee60
+      internalID: -1819348275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 509
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab49830e439ee447bce94583bbadbaf
+      internalID: -19896674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_37
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 509
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2655aee2c5ebb408147d27f8f10d95
+      internalID: 1567436025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_38
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 509
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d21744fde2ca24c859051fbef073c2
+      internalID: 1994672611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_39
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 509
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24bd1109c219c943840494b7bb77112
+      internalID: 406764314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_40
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 509
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e47d22d10d5cfe24ca501fff8823542e
+      internalID: 1339366866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_41
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 509
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e28e5adc27c99449805ad671e157af6
+      internalID: 1272190485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_42
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 509
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 611aff0c6bdfd4a43aac76c613d9fc21
+      internalID: -1508234338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_43
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 509
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d79279b13407ea4eb000142b2b15ec0
+      internalID: -504693839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_44
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 509
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8151a43fb5cc8a9448b75d92ec158228
+      internalID: 412788073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 406
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616656409cc32884ea3bfc47d8d52486
+      internalID: -197771764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_46
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 406
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e573229283821c45922d552a56d2f30
+      internalID: -2100282390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_47
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 406
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e2f25be51f13b446be8df2cc4e6ae5c
+      internalID: 1778833434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_48
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 406
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8db336e53b493147ac4668338411703
+      internalID: -174317108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_49
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 406
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3255b241e6b91f64382945ac0ceb0544
+      internalID: -662193698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_50
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 406
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7915c16b1ed3187479efbd40b00b90ce
+      internalID: -1940018342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_51
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 406
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afcdc97ae098d9445aa57f9ad0af33a2
+      internalID: 2017424536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_52
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 406
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40367061dfc130844b6b42e0383bea40
+      internalID: 2124318734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_53
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 406
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bbedb7b8e0191e479b51a161bcf1f57
+      internalID: -747390082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 303
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4757b0540b8e6a74f8bca3e0c569215d
+      internalID: -162243181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_55
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 303
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf7d3a32ca9c2340ba308bef3ba6a34
+      internalID: 1855459526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_56
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 303
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6483a855c253b5145a3a1208574cac89
+      internalID: -223702554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_57
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 303
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 649dc0ab6dc47ff4f81f2e4e0f5b0d33
+      internalID: -369411333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_58
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 303
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6126ef9cc155b4d49b82ea11fc8001aa
+      internalID: -1851407352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_59
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 303
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20f63408398ee34992d0c72c7ad3504
+      internalID: -1526494858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_60
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 303
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86d6a986cecef94ba8bcb03e71575d8
+      internalID: -2056506084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_61
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 303
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aaa6f9bc176c794b8692c3b8e540883
+      internalID: -2048250197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_62
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 303
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c29856f73aaf31488046032dd866f7d
+      internalID: -15173638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa0dfe07ce299e4cb99bf96ff2ef171
+      internalID: 885757437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_64
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 200
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe3d361f89e03348a7d65e49bfc57e5
+      internalID: -469879968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_65
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 200
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86448ada1f649cd4eaa0812bf04df4a1
+      internalID: 652055360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_66
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 200
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ae372667ba0d94891529cedcff8b6c
+      internalID: 1912971251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_67
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 200
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f6f9c618441dd240b13c7a4d71a2384
+      internalID: -240549716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_68
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 200
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4fac720f663d444b9cd8807b02810d8
+      internalID: -1616503376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_69
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 200
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3b23d35e30f19469c1f72fa32098da
+      internalID: -1786724755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_70
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 200
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e5bc6f492d49474baf8e93288cc07a4
+      internalID: 1801320115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_71
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 200
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ba55dc1e2b45446a0ce04e11b4ebbd
+      internalID: -107333189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf8a4225d800f6343bb55d7e86a0acf7
+      internalID: 668747405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_73
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 97
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae071d71452e6174eb7183d636b1174d
+      internalID: -1671512861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_74
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 97
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6cfda89ec825144ea02b4774644ce0c
+      internalID: -853274226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_75
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 97
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac82b1395986f946bab5610ea8d7fbd
+      internalID: -116056654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_76
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 97
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06084a3bd93481449afa236e4f125309
+      internalID: -263948988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_77
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 97
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a85d53f55bfffed4ba29c28dd17cc8e5
+      internalID: -1673828611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_78
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 97
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf214cb8bacb3f4d92276fbc48f7b48
+      internalID: -1581504387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_79
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 97
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63249ed734dd470479cba171c7085d15
+      internalID: -1333759222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Tiles_Green_Albedo 1_80
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 97
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74735ae05704b6f4db393d7de99d7022
+      internalID: 751908657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 408a2aaa7e3d85d48ac10783f3380ac0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":103.0,"y":103.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Floor_Tiles_Green_Albedo 1_0: -1414158110
+      Floor_Tiles_Green_Albedo 1_1: 1736141605
+      Floor_Tiles_Green_Albedo 1_10: 157832972
+      Floor_Tiles_Green_Albedo 1_11: -1332628349
+      Floor_Tiles_Green_Albedo 1_12: 2049817797
+      Floor_Tiles_Green_Albedo 1_13: 398760643
+      Floor_Tiles_Green_Albedo 1_14: 268445774
+      Floor_Tiles_Green_Albedo 1_15: -1237508272
+      Floor_Tiles_Green_Albedo 1_16: 305299568
+      Floor_Tiles_Green_Albedo 1_17: -2001889705
+      Floor_Tiles_Green_Albedo 1_18: -1094002277
+      Floor_Tiles_Green_Albedo 1_19: 1349749714
+      Floor_Tiles_Green_Albedo 1_2: -270613756
+      Floor_Tiles_Green_Albedo 1_20: 1813520601
+      Floor_Tiles_Green_Albedo 1_21: 208148410
+      Floor_Tiles_Green_Albedo 1_22: 312002720
+      Floor_Tiles_Green_Albedo 1_23: -1292832641
+      Floor_Tiles_Green_Albedo 1_24: -1625292415
+      Floor_Tiles_Green_Albedo 1_25: 984752380
+      Floor_Tiles_Green_Albedo 1_26: -1527544928
+      Floor_Tiles_Green_Albedo 1_27: -1834623948
+      Floor_Tiles_Green_Albedo 1_28: -2119529659
+      Floor_Tiles_Green_Albedo 1_29: -172559931
+      Floor_Tiles_Green_Albedo 1_3: -1044018222
+      Floor_Tiles_Green_Albedo 1_30: 507498131
+      Floor_Tiles_Green_Albedo 1_31: -1524033161
+      Floor_Tiles_Green_Albedo 1_32: -1263843285
+      Floor_Tiles_Green_Albedo 1_33: 1219627308
+      Floor_Tiles_Green_Albedo 1_34: 806621170
+      Floor_Tiles_Green_Albedo 1_35: -1819348275
+      Floor_Tiles_Green_Albedo 1_36: -19896674
+      Floor_Tiles_Green_Albedo 1_37: 1567436025
+      Floor_Tiles_Green_Albedo 1_38: 1994672611
+      Floor_Tiles_Green_Albedo 1_39: 406764314
+      Floor_Tiles_Green_Albedo 1_4: -361722770
+      Floor_Tiles_Green_Albedo 1_40: 1339366866
+      Floor_Tiles_Green_Albedo 1_41: 1272190485
+      Floor_Tiles_Green_Albedo 1_42: -1508234338
+      Floor_Tiles_Green_Albedo 1_43: -504693839
+      Floor_Tiles_Green_Albedo 1_44: 412788073
+      Floor_Tiles_Green_Albedo 1_45: -197771764
+      Floor_Tiles_Green_Albedo 1_46: -2100282390
+      Floor_Tiles_Green_Albedo 1_47: 1778833434
+      Floor_Tiles_Green_Albedo 1_48: -174317108
+      Floor_Tiles_Green_Albedo 1_49: -662193698
+      Floor_Tiles_Green_Albedo 1_5: -1296578357
+      Floor_Tiles_Green_Albedo 1_50: -1940018342
+      Floor_Tiles_Green_Albedo 1_51: 2017424536
+      Floor_Tiles_Green_Albedo 1_52: 2124318734
+      Floor_Tiles_Green_Albedo 1_53: -747390082
+      Floor_Tiles_Green_Albedo 1_54: -162243181
+      Floor_Tiles_Green_Albedo 1_55: 1855459526
+      Floor_Tiles_Green_Albedo 1_56: -223702554
+      Floor_Tiles_Green_Albedo 1_57: -369411333
+      Floor_Tiles_Green_Albedo 1_58: -1851407352
+      Floor_Tiles_Green_Albedo 1_59: -1526494858
+      Floor_Tiles_Green_Albedo 1_6: -861720452
+      Floor_Tiles_Green_Albedo 1_60: -2056506084
+      Floor_Tiles_Green_Albedo 1_61: -2048250197
+      Floor_Tiles_Green_Albedo 1_62: -15173638
+      Floor_Tiles_Green_Albedo 1_63: 885757437
+      Floor_Tiles_Green_Albedo 1_64: -469879968
+      Floor_Tiles_Green_Albedo 1_65: 652055360
+      Floor_Tiles_Green_Albedo 1_66: 1912971251
+      Floor_Tiles_Green_Albedo 1_67: -240549716
+      Floor_Tiles_Green_Albedo 1_68: -1616503376
+      Floor_Tiles_Green_Albedo 1_69: -1786724755
+      Floor_Tiles_Green_Albedo 1_7: -1036315897
+      Floor_Tiles_Green_Albedo 1_70: 1801320115
+      Floor_Tiles_Green_Albedo 1_71: -107333189
+      Floor_Tiles_Green_Albedo 1_72: 668747405
+      Floor_Tiles_Green_Albedo 1_73: -1671512861
+      Floor_Tiles_Green_Albedo 1_74: -853274226
+      Floor_Tiles_Green_Albedo 1_75: -116056654
+      Floor_Tiles_Green_Albedo 1_76: -263948988
+      Floor_Tiles_Green_Albedo 1_77: -1673828611
+      Floor_Tiles_Green_Albedo 1_78: -1581504387
+      Floor_Tiles_Green_Albedo 1_79: -1333759222
+      Floor_Tiles_Green_Albedo 1_8: 2066906440
+      Floor_Tiles_Green_Albedo 1_80: 751908657
+      Floor_Tiles_Green_Albedo 1_9: -107291512
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
