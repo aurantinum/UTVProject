@@ -60,12 +60,12 @@ public class CameraManager : Singleton<CameraManager>
     private void Update()
     {
         // Fallback input check
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             OnSwitch();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             OnCapture();
         }
