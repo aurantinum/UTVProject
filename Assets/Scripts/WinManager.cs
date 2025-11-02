@@ -107,7 +107,7 @@ public class WinManager : Singleton<WinManager>
 
 
             blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
-            yield return null;
+            yield return new WaitForSeconds(0.1f);
         }
 
         blackout.color = new Color(0, 0, 0, 1);
@@ -115,7 +115,7 @@ public class WinManager : Singleton<WinManager>
 
         ghost.transform.localPosition -= (distance / 2) * Vector3.forward;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForEndOfFrame();
 
         blackout.color = new Color(0, 0, 0, 0);
 
@@ -123,7 +123,7 @@ public class WinManager : Singleton<WinManager>
         for (int i = 0; i < (shutterTime/5f); i++)
         {
             ghost.transform.localPosition -= (distance / (shutterTime/5f)) * 0.25f * Vector3.forward;
-            yield return null;
+            yield return new WaitForSeconds(0.1f);
         }
 
         textColor.a = 1; winText.color = textColor;
