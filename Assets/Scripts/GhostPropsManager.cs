@@ -45,12 +45,13 @@ public class GhostPropsManager : MonoBehaviour
 
         // set the properties of the ghost props
         numberOfGhostProps = numberOfJars + numberOfChairs + numberOfPotPanBottles + numberOfMisc;
+        print("there should be " + numberOfGhostProps + " ghost props");
         for (int i = 0; i < numberOfGhostProps; i++)
         {
             GameObject ghostProp = ghostProps[i];
             ghostProp.layer = LayerMask.NameToLayer("Ghost");
             ghostProp.tag = "GhostProp";
-            Debug.Log(ghostProp.name + " is invisible.");
+            Debug.Log(i+1 + ": "+ ghostProp.name + " is invisible.");
         }
     }
 
@@ -70,12 +71,14 @@ public class GhostPropsManager : MonoBehaviour
     // add a given amount of objects to the ghost group
     private void AddGhostProps(List<GameObject> group, int amt)
     {
-        for (int i = 0; i < amt; i++)
+        int added = 0;
+        while (added < amt) 
         {
             GameObject prop = group[Random.Range(0, group.Count)];
             if (!ghostProps.Contains(prop)) // avoid duplicates
             {
                 ghostProps.Add(prop);
+                added++;
             }
         }
     }
