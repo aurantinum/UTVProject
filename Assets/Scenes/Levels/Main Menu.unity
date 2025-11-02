@@ -1558,7 +1558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b163d8fb3ed9e0648b6c2865989e11c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  target: Vertical slice
+  target: Lore Dump
 --- !u!1 &1671558186
 GameObject:
   m_ObjectHideFlags: 0
