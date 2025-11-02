@@ -5657,6 +5657,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   holdPictureTime: 5
+  _doDebugLog: 0
 --- !u!4 &1736976707
 Transform:
   m_ObjectHideFlags: 0
