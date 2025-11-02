@@ -30,7 +30,16 @@ public class GhostAI : MonoBehaviour
     {
         wanderCenter = transform.position;
         StartCoroutine(nameof(WaitRoutine), 0.5f);
+        FindFirstObjectByType<CameraManager>().OnPictureTaken.AddListener(Freeze);
     }
+
+    //GHOST CRAWL TOWARDS PLAYER
+
+    //WEEPING ANGEL?
+
+    //GHOST CAN KILL OR CAN SHUT OFF CAMERA
+
+
 
     // Update is called once per frame
     void Update()
@@ -38,10 +47,12 @@ public class GhostAI : MonoBehaviour
         
     }
 
-    public void Freeze(float freezeLength)
+
+    public void Freeze()
     {
         StopAllCoroutines();
-        CurrentFreezeLength = freezeLength;
+        CurrentFreezeLength = 4;
+        gameObject.layer = LayerMask.NameToLayer("FrozenGhost");
         var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
         foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = true;
         StartCoroutine(nameof(FreezeRoutine));
@@ -52,8 +63,12 @@ public class GhostAI : MonoBehaviour
         state = GhostState.FROZEN;
         TimeFrozen = 0f;
         Enrage += 1;
+        var baseC = GetComponent<MeshRenderer>().material.color;
         while (TimeFrozen < CurrentFreezeLength)
         {
+            var c = GetComponent<MeshRenderer>().material.color;
+            c.a = 1 - TimeFrozen/CurrentFreezeLength;
+            GetComponent<MeshRenderer>().material.color = c;
             TimeFrozen += Time.deltaTime;
             transform.position = transform.position;
             transform.rotation = transform.rotation;
@@ -62,6 +77,8 @@ public class GhostAI : MonoBehaviour
         }
         var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
         foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = false;
+        GetComponent<MeshRenderer>().material.color = baseC;
+        gameObject.layer = LayerMask.NameToLayer("Ghost");
         StartCoroutine(nameof(WaitRoutine), 0);
     }
 
@@ -147,7 +164,7 @@ public class GhostAI : MonoBehaviour
         }
         if(curDistance < .5f)
         {
-            //TODO ATTACK PLAYER
+            Player.Instance.OnAttacked();
         }
         StartCoroutine(nameof(WaitRoutine), 0.25f);
 
