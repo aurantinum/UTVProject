@@ -6,7 +6,7 @@ public class SanityManager : Singleton<SanityManager>
 {
     #region instance vars and get/sets
     public float StartingSanity {  get; private set; }
-    private float _sanity = 360;
+    private float _sanity = 300;
     public float Sanity { 
         get { return _sanity; }
         set
