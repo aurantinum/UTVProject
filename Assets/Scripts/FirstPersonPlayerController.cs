@@ -349,6 +349,8 @@ public class FirstPersonController : MonoBehaviour
             if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
             {
                 isWalking = true;
+                //play footstep sounds
+                //SoundManager.PlaySound(SoundType.Footstep);
             }
             else
             {
@@ -532,7 +534,7 @@ public class FirstPersonControllerEditor : Editor
         EditorGUILayout.Space();
 
         fpc.playerCamera = (CinemachineCamera)EditorGUILayout.ObjectField(new GUIContent("Camera", "Camera attached to the controller."), fpc.playerCamera, typeof(CinemachineCamera), true);
-        fpc.fov = EditorGUILayout.Slider(new GUIContent("Field of View", "The camera’s view angle. Changes the player camera directly."), fpc.fov, fpc.zoomFOV, 179f);
+        fpc.fov = EditorGUILayout.Slider(new GUIContent("Field of View", "The cameraï¿½s view angle. Changes the player camera directly."), fpc.fov, fpc.zoomFOV, 179f);
         fpc.cameraCanMove = EditorGUILayout.ToggleLeft(new GUIContent("Enable Camera Rotation", "Determines if the camera is allowed to move."), fpc.cameraCanMove);
 
         GUI.enabled = fpc.cameraCanMove;
