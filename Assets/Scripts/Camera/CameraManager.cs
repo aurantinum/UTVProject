@@ -49,6 +49,8 @@ public class CameraManager : Singleton<CameraManager>
     bool takingPicture;
     bool prevIsZoomed;
 
+    float frameCount;
+
     private void Awake()
     {
         UpdateCameras(CameraMode.Player);
@@ -57,7 +59,13 @@ public class CameraManager : Singleton<CameraManager>
 
     private void Update()
     {
-        if (isCameraMode) FindObjectInView();
+        if (isCameraMode && frameCount > 1)
+        {
+            FindObjectInView();
+            frameCount = 0;
+        }
+
+        frameCount += Time.deltaTime;
         prevIsZoomed = controller.isZoomed;
     }
 
@@ -66,8 +74,8 @@ public class CameraManager : Singleton<CameraManager>
         Dictionary<GameObject, int> collisions = new();
         int maxCollisions = 0; 
 
-        float marginX = 5;
-        float marginY = 5;
+        float marginX = Screen.width / 5;
+        float marginY = Screen.height / 5;
 
         newPicture.hasGhost = false;
         newPicture.hasProp = false;
@@ -204,7 +212,7 @@ public class CameraManager : Singleton<CameraManager>
         controller.UpdateStart();
 
         // Check win condition
-        bool won = true; //photoManager.HasWon();
+        bool won = photoManager.HasWon();
 
         if (won) { 
             WinManager.Instance.WinGame(controller, shutterTime);
