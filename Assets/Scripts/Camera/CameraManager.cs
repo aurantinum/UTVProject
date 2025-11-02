@@ -172,6 +172,7 @@ public class CameraManager : Singleton<CameraManager>
 
         // Set up for capturing
         photoCamera.gameObject.transform.position = Camera.main.transform.position;
+        photoCamera.gameObject.transform.rotation = Camera.main.transform.rotation;
         takingPicture = true;
         Camera.main.targetTexture = targetTexture;
         controller.crosshairObject.gameObject.SetActive(false);
@@ -199,7 +200,10 @@ public class CameraManager : Singleton<CameraManager>
 
         OnAnyPictureTaken.Invoke();
         if (newPicture.hasGhost)
+        {
+            if (_doDebugLog) Debug.Log("Ghost is here");
             OnGhostPictureTaken.Invoke();
+        }
 
         // Only adds a picture if the prop hasn't been discovered
         else if (newPicture.hasProp && !pictures.ContainsKey(currentProp))

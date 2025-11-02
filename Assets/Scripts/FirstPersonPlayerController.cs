@@ -148,8 +148,6 @@ public class FirstPersonController : MonoBehaviour
     void Start()
     {
         UpdateStart();
-
-       
     }
 
     public void UpdateStart()
