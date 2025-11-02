@@ -26,7 +26,7 @@ public class SquishAnimation : MonoBehaviour
     private Vector3 originalScale;
     private float timePassed;
 
-    private void Awake()
+    private void Start()
     {
         originalScale = target.localScale;
         AddComp
