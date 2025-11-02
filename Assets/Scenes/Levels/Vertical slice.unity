@@ -7215,6 +7215,7 @@ Transform:
   - {fileID: 1979304671}
   - {fileID: 250621403}
   - {fileID: 69214103}
+  - {fileID: 1911779303}
   m_Father: {fileID: 2046100195}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582896787
@@ -8850,7 +8851,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2142013133}
+    m_TransformParent: {fileID: 1542130549}
     m_Modifications:
     - target: {fileID: 4897607244343945972, guid: 13031e2bd5b44ae4295842ce91743941, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9983,7 +9984,6 @@ Transform:
   - {fileID: 744982081895566439}
   - {fileID: 3366702528349722731}
   - {fileID: 1558552409389187403}
-  - {fileID: 1911779303}
   - {fileID: 809751583}
   - {fileID: 1755032470}
   - {fileID: 941309207}
