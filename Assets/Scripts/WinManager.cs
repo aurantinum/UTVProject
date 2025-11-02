@@ -10,13 +10,26 @@ public class WinManager : Singleton<WinManager>
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject loseScreen;
     [SerializeField] Image blackout;
+    [SerializeField] GameObject sanity;
+
+    PauseManager pauseManager;
+    CameraManager cameraManager;
 
     [SerializeField] int distance = 50;
+    [SerializeField] bool win; // DEBUG
+
+    private void Start()
+    {
+        pauseManager = FindAnyObjectByType<PauseManager>();
+        cameraManager = FindAnyObjectByType<CameraManager>();
+    }
 
 
     public void WinGame(FirstPersonController controller, int shutterTime)
     {
         winScreen.SetActive(true);
+        sanity.SetActive(false);
+        pauseManager.gameObject.SetActive(false);
         StartCoroutine(Polterzoom(winScreen.GetComponentInChildren<Animator>().gameObject, controller, shutterTime));
 
         // play scary sound
@@ -25,6 +38,9 @@ public class WinManager : Singleton<WinManager>
     public void LoseGame()
     {
         loseScreen.SetActive(true);
+        sanity.SetActive(false);
+        pauseManager.gameObject.SetActive(false);
+
         // PLEASE REPLACE NULL WITH AUDIO SOURCE
         StartCoroutine(WaitForCrack(null));
     }
@@ -77,18 +93,20 @@ public class WinManager : Singleton<WinManager>
 
     IEnumerator WaitForCrack(AudioSource source)
     {
-        while (source.isPlaying)
+        if (source != null)
         {
-            yield return null;
+            while (source.isPlaying)
+            {
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(1);
         }
-
-        yield return new WaitForSeconds(1);
-
-        ReloadLevel();
     }
 
     IEnumerator Polterzoom(GameObject ghost, FirstPersonController controller, int shutterTime)
     {
+        Image winBlack = winScreen.GetComponent<Image>();
         // Define components
         TMP_Text winText = winScreen.GetComponentInChildren<TMP_Text>();
 
@@ -107,29 +125,30 @@ public class WinManager : Singleton<WinManager>
         {
             ghost.transform.localPosition -= (distance / shutterTime) * 0.25f * Vector3.forward;
 
-
-            blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
+            winBlack.color = new Color(0, 0, 0, i / (float)shutterTime);
             yield return new WaitForSeconds(0.1f);
         }
 
-        blackout.color = new Color(0, 0, 0, 1);
+        winBlack.color = new Color(0, 0, 0, 1);
         RemoveUI(controller);
 
         ghost.transform.localPosition -= (distance / 2) * Vector3.forward;
 
         yield return new WaitForEndOfFrame();
 
-        blackout.color = new Color(0, 0, 0, 0);
+        winBlack.color = new Color(0, 0, 0, 0);
 
 
-        for (int i = 0; i < (shutterTime/5f); i++)
+        for (int i = 0; i < (shutterTime); i++)
         {
-            ghost.transform.localPosition -= (distance / (shutterTime/5f)) * 0.25f * Vector3.forward;
-            yield return new WaitForSeconds(0.1f);
+            ghost.transform.localPosition -= (distance / (shutterTime)) * 0.25f * Vector3.forward;
+            yield return new WaitForSeconds(0.001f);
         }
 
+        yield return new WaitForSeconds(1);
+        ghost.SetActive(false); 
+        winBlack.color = new Color(0, 0, 0, 1); 
         textColor.a = 1; winText.color = textColor;
-        blackout.color = new Color(0, 0, 0, 1);
 
     }
 

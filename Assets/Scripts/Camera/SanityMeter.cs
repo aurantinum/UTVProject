@@ -29,6 +29,7 @@ public class SanityMeter : MonoBehaviour
     public void SetSanity(int sanity)
     {
         slider.value = sanity;
+        if (sanity == 0) WinManager.Instance.LoseGame();
     }
 
     public void SetMaxSanity(int newMax)

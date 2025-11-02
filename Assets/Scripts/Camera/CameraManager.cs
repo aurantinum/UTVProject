@@ -22,6 +22,7 @@ public class CameraManager : Singleton<CameraManager>
     [SerializeField] RenderTexture targetTexture;
     [SerializeField] Image blackout;
     [SerializeField] Image pictureDisplay;
+    [SerializeField] Material vignetteMat;
     public Dictionary<GameObject, (Sprite sprite, bool hasGhost, bool hasProp)> pictures;
     public (Sprite sprite, bool hasGhost, bool hasProp) newPicture;
     GameObject currentProp;
@@ -36,9 +37,12 @@ public class CameraManager : Singleton<CameraManager>
     public UnityEvent OnCameraTakenOut = new();
 
     private GhostAI ghostAI;
+    float r, g, b;
+
+    GameObject ghostObject;
 
 
-    enum CameraMode { Player, Camera }
+    public enum CameraMode { Player, Camera }
 
     [Header("Set Variables")]
     [SerializeField] float holdPictureTime = 5f;
@@ -46,15 +50,21 @@ public class CameraManager : Singleton<CameraManager>
     [Header("Public Booleans")]
     public bool isCameraMode { get; private set; }
 
-    [Header("Private Booleans")]
+    [Header("Private Variables")]
     [SerializeField] bool _doDebugLog;
     bool takingPicture;
+    float waitForUpdate;
 
     private void Awake()
     {
         UpdateCameras(CameraMode.Player);
         pictures = new();
         ghostAI = FindAnyObjectByType<GhostAI>();
+        ghostObject = GameObject.FindGameObjectWithTag("Ghost");
+
+        r = vignetteMat.color.r;
+        g = vignetteMat.color.g;
+        b = vignetteMat.color.b;
     }
 
     private void Update()
@@ -69,12 +79,21 @@ public class CameraManager : Singleton<CameraManager>
         {
             OnCapture();
         }
+
+        // Every five seconds, update what objects are in view 
+        // so that we can do vignette stuff
+        if (waitForUpdate > 0.2f)
+        {
+            FindObjectInView();
+            waitForUpdate = 0;
+        }
+        waitForUpdate += Time.deltaTime;
     }
 
     void FindObjectInView()
     {
         Dictionary<GameObject, int> collisions = new();
-        int maxCollisions = 0; 
+        int maxCollisions = 0;
 
         float marginX = Screen.width / 10;
         float marginY = Screen.height / 10;
@@ -109,18 +128,19 @@ public class CameraManager : Singleton<CameraManager>
             }
         }
 
+        //float value = Mathf.Lerp(3, 20, (5 - collisions.GetValueOrDefault(ghostObject, 0))/5f);
+        float value = 5;
+        vignetteMat.SetFloat("_VignettePower", value);
+
     }
 
-    void UpdateCameras(CameraMode mode)
+    public void UpdateCameras(CameraMode mode)
     {
         isCameraMode = mode == CameraMode.Camera;
 
         // Turn on camera crosshairs, border, and images
         controller.crosshair = isCameraMode;
         pictureDisplay.transform.parent.gameObject.SetActive(!isCameraMode);
-
-        // Turn on / off zooming
-        controller.enableZoom = isCameraMode;
 
         // Restrict / enable camera movement
         if (isCameraMode)
