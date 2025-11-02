@@ -355,6 +355,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107501714}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &107841998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1670330128317549416, guid: d2d47cab916b6f145a5a92a840a1ba07, type: 3}
+  m_PrefabInstance: {fileID: 2104172056}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b15c208be8a4a740bbf27928c0889b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoManager
 --- !u!1001 &110136468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5587,7 +5598,7 @@ MonoBehaviour:
   _persistent: 1
   controller: {fileID: 1289990686}
   photoCamera: {fileID: 741052836}
-  photoManager: {fileID: 0}
+  photoManager: {fileID: 107841998}
   targetTexture: {fileID: 8400000, guid: 5ff7b977ad931d143959b467381c7f8d, type: 2}
   blackout: {fileID: 687793260}
   pictureDisplay: {fileID: 1766080825}
