@@ -21,7 +21,7 @@ public class GhostAI : MonoBehaviour
     private NavMeshAgent agent;
     public float Enrage = 0;
     public Vector3 wanderCenter;
-    public float WanderRadius = 8;
+    public float WanderRadius = 1;
     public float TimeFrozen {  get; private set; }
     public float CurrentFreezeLength {  get; private set; }
 
@@ -30,7 +30,17 @@ public class GhostAI : MonoBehaviour
     {
         wanderCenter = transform.position;
         StartCoroutine(nameof(WaitRoutine), 0.5f);
+        CameraManager.Instance.OnGhostPictureTaken.AddListener(Freeze);
+        CameraManager.Instance.OnAnyPictureTaken.AddListener(UnFreeze);
     }
+
+    //GHOST CRAWL TOWARDS PLAYER
+
+    //WEEPING ANGEL?
+
+    //GHOST CAN KILL OR CAN SHUT OFF CAMERA
+
+
 
     // Update is called once per frame
     void Update()
@@ -38,13 +48,19 @@ public class GhostAI : MonoBehaviour
         
     }
 
-    public void Freeze(float freezeLength)
+
+    public void Freeze()
     {
         StopAllCoroutines();
-        CurrentFreezeLength = freezeLength;
-        var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
-        foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = true;
+        CurrentFreezeLength = 4;
+        gameObject.layer = LayerMask.NameToLayer("FrozenGhost");
         StartCoroutine(nameof(FreezeRoutine));
+    }
+
+    public void UnFreeze()
+    {
+        CurrentFreezeLength = 0;
+        gameObject.layer = LayerMask.NameToLayer("Ghost");
     }
 
     IEnumerator FreezeRoutine()
@@ -52,8 +68,12 @@ public class GhostAI : MonoBehaviour
         state = GhostState.FROZEN;
         TimeFrozen = 0f;
         Enrage += 1;
+        var baseC = GetComponent<MeshRenderer>().material.color;
         while (TimeFrozen < CurrentFreezeLength)
         {
+            var c = GetComponent<MeshRenderer>().material.color;
+            c.a = 1 - TimeFrozen/CurrentFreezeLength;
+            GetComponent<MeshRenderer>().material.color = c;
             TimeFrozen += Time.deltaTime;
             transform.position = transform.position;
             transform.rotation = transform.rotation;
@@ -62,6 +82,8 @@ public class GhostAI : MonoBehaviour
         }
         var camViewables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ICamViewable>();
         foreach (var camViewable in camViewables) camViewable.IsGhostFrozen = false;
+        GetComponent<MeshRenderer>().material.color = baseC;
+        gameObject.layer = LayerMask.NameToLayer("Ghost");
         StartCoroutine(nameof(WaitRoutine), 0);
     }
 
@@ -116,7 +138,8 @@ public class GhostAI : MonoBehaviour
     
     IEnumerator WanderRoutine()
     {
-        Vector3 wanderPos = (new Vector3(Random.value, 0, Random.value).normalized * Random.Range(-WanderRadius, WanderRadius)) + wanderCenter;
+        Vector3 wanderPos = (new Vector3(Random.value, 0, Random.value).normalized * Random.Range(-WanderRadius, WanderRadius)) + 
+            PuzzleManager.Instance.ghostProps[Random.Range(0, PuzzleManager.Instance.ghostProps.Count)].transform.position;
         state = GhostState.WANDER;
         agent.isStopped = false;
         agent.destination = wanderPos;
@@ -147,7 +170,7 @@ public class GhostAI : MonoBehaviour
         }
         if(curDistance < .5f)
         {
-            //TODO ATTACK PLAYER
+            Player.Instance.OnAttacked();
         }
         StartCoroutine(nameof(WaitRoutine), 0.25f);
 
