@@ -35,9 +35,7 @@ public class FirstPersonController : MonoBehaviour
     // Crosshair
     public bool lockCursor = true;
     public bool crosshair = true;
-    public Sprite crosshairImage;
-    public Color crosshairColor = Color.white;
-    public Image crosshairObject;
+    public GameObject crosshairObject;
 
     // Internal Variables
     private float yaw = 0.0f;
@@ -194,13 +192,11 @@ public class FirstPersonController : MonoBehaviour
 
         if (crosshair)
         {
-            crosshairObject.sprite = crosshairImage;
-            crosshairObject.color = crosshairColor;
-            crosshairObject.gameObject.SetActive(true);
+            crosshairObject.SetActive(true);
         }
         else
         {
-            crosshairObject.gameObject.SetActive(false);
+            crosshairObject.SetActive(false);
         }
     }
 
@@ -586,16 +582,14 @@ public class FirstPersonControllerEditor : Editor
             EditorGUI.indentLevel++;
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel(new GUIContent("Crosshair Object", "Image UI that the crosshair is tied to"));
-            fpc.crosshairObject = (Image)EditorGUILayout.ObjectField(fpc.crosshairObject, typeof(Image), true);
+            fpc.crosshairObject = (GameObject)EditorGUILayout.ObjectField(fpc.crosshairObject, typeof(GameObject), true);
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel(new GUIContent("Crosshair Image", "Sprite to use as the crosshair."));
-            fpc.crosshairImage = (Sprite)EditorGUILayout.ObjectField(fpc.crosshairImage, typeof(Sprite), false);
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
-            fpc.crosshairColor = EditorGUILayout.ColorField(new GUIContent("Crosshair Color", "Determines the color of the crosshair."), fpc.crosshairColor);
             EditorGUILayout.EndHorizontal();
             EditorGUI.indentLevel--;
         }

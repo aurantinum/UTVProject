@@ -7,9 +7,10 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : Singleton<CameraManager>
 {
     [Header("Controller")]
     [SerializeField] FirstPersonController controller;
@@ -18,10 +19,12 @@ public class CameraManager : MonoBehaviour
     [SerializeField] RenderTexture targetTexture;
     [SerializeField] Image blackout;
     [SerializeField] Image pictureDisplay;
-    public List<(Sprite sprite, bool hasGhost)> pictures;
-    public (Sprite sprite, bool hasGhost) newPicture;
+    public List<(Sprite sprite, bool hasGhost, bool hasProp)> pictures;
+    public (Sprite sprite, bool hasGhost, bool hasProp) newPicture;
 
-    public UnityEvent OnPictureTaken = new();
+    public UnityEvent OnAnyPictureTaken = new();
+    public UnityEvent OnGhostPictureTaken = new();
+    public UnityEvent<GameObject> OnGhostPropPictureTaken = new();
 
 
     enum CameraMode { Player, Camera }
@@ -58,9 +61,9 @@ public class CameraManager : MonoBehaviour
 
         newPicture.hasGhost = false;
 
-        for (float x=0; x < Screen.width; x += marginX)
+        for (float x = 0; x < Screen.width; x += marginX)
         {
-            for (float y=0; y < Screen.height; y += marginY)
+            for (float y = 0; y < Screen.height; y += marginY)
             {
                 Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y, 0));
 
@@ -72,13 +75,11 @@ public class CameraManager : MonoBehaviour
                     collisions[obj] = collisions.GetValueOrDefault(obj, 0) + 1;
 
                     if (hit.collider.CompareTag("Ghost")) newPicture.hasGhost = true;
-                    if (hit.collider.CompareTag("GhostProp")) PuzzleManager.Instance.OnGhostPropPictureTaken.Invoke(hit.collider.gameObject);
+                    if (hit.collider.CompareTag("GhostProp")) newPicture.hasProp = true;
+                    if (hit.collider.CompareTag("GhostProp")) OnGhostPropPictureTaken.Invoke(hit.collider.gameObject);
                 }
             }
         }
-        
-
-        controller.crosshairObject.color = Color.black;
 
     }
 
@@ -86,8 +87,9 @@ public class CameraManager : MonoBehaviour
     {
         isCameraMode = mode == CameraMode.Camera;
 
-        // Turn on camera crosshairs and border
+        // Turn on camera crosshairs, border, and images
         controller.crosshair = isCameraMode;
+        pictureDisplay.transform.parent.gameObject.SetActive(!isCameraMode);
 
         // Turn on / off zooming
         controller.enableZoom = isCameraMode;
@@ -100,12 +102,14 @@ public class CameraManager : MonoBehaviour
             controller.zoomStepTime = 1f;
             controller.zoomFOV = 20f;
             controller.fov = 45f;
+            Camera.main.GetUniversalAdditionalCameraData().SetRenderer(1);
         }
         else
         {
             controller.mouseSensitivity = 2;
             controller.maxLookAngle = 50f;
             controller.fov = 80f;
+            Camera.main.GetUniversalAdditionalCameraData().SetRenderer(0);
         }
 
         // Restrict / enable player movement
@@ -161,8 +165,9 @@ public class CameraManager : MonoBehaviour
         // Performs the visual action of taking the picture
         StartCoroutine(TakePicture(picture));
 
+        OnAnyPictureTaken.Invoke();
         if(newPicture.hasGhost)
-            OnPictureTaken.Invoke();
+            OnGhostPictureTaken.Invoke();
     }
 
     IEnumerator TakePicture(Sprite picture)
@@ -179,24 +184,20 @@ public class CameraManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-
         // Switch back to normal camera but add image on screen
-        int randRot = Random.Range(-10, 10);
-        pictureDisplay.transform.parent.localRotation = Quaternion.identity;
-        pictureDisplay.transform.parent.Rotate(new Vector3(0, 0, randRot));
         pictureDisplay.transform.parent.gameObject.SetActive(true);
         pictureDisplay.sprite = picture;
-        yield return new WaitForSeconds(holdPictureTime);
-
-        // remove image on screen, reset crosshair, etc
-        pictureDisplay.transform.parent.gameObject.SetActive(false);
-        controller.crosshairObject.gameObject.SetActive(true);
 
         // Unfreeze the camera
         controller.cameraCanMove = true;
         controller.enableZoom = true;
         controller.UpdateStart();
 
+        // Turn off camera
+        UpdateCameras(CameraMode.Player);
+
         takingPicture = false;
     }
+
+
 }
