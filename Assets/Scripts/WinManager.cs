@@ -13,6 +13,7 @@ public class WinManager : Singleton<WinManager>
     [SerializeField] GameObject sanity;
 
     PauseManager pauseManager;
+    CameraManager cameraManager;
 
     [SerializeField] int distance = 50;
     [SerializeField] bool win; // DEBUG
@@ -20,6 +21,7 @@ public class WinManager : Singleton<WinManager>
     private void Start()
     {
         pauseManager = FindAnyObjectByType<PauseManager>();
+        cameraManager = FindAnyObjectByType<CameraManager>();
     }
 
 
@@ -38,6 +40,7 @@ public class WinManager : Singleton<WinManager>
         loseScreen.SetActive(true);
         sanity.SetActive(false);
         pauseManager.gameObject.SetActive(false);
+
         // PLEASE REPLACE NULL WITH AUDIO SOURCE
         StartCoroutine(WaitForCrack(null));
     }
