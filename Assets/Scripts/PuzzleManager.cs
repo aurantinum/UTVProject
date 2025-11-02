@@ -18,7 +18,9 @@ public class PuzzleManager : Singleton<PuzzleManager>
         go.layer = LayerMask.NameToLayer("Default");
         MeshRenderer meshRenderer = go.GetComponent<MeshRenderer>();
         meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-        go.GetComponent<Animator>()/*play animation after we return to normal view*/;
+
+        SquishAnimation squish = go.GetComponent<SquishAnimation>();
+        squish.enabled = false;
     }
    
 }
