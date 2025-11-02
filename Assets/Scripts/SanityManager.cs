@@ -14,6 +14,7 @@ public class SanityManager : Singleton<SanityManager>
             if (_sanity > value) 
                 OnSanityLost.Invoke();
             _sanity = value;
+            SanityMeter.Instance.SetSanity((int)_sanity);
         }
     }
     private float _sanityDecayAmount = 1f;
@@ -34,6 +35,7 @@ public class SanityManager : Singleton<SanityManager>
     private void Start()
     {
         StartingSanity = _sanity;
+        SanityMeter.Instance.SetMaxSanity((int)StartingSanity);
         StartDecay();
     }
 
