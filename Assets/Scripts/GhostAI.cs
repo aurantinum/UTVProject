@@ -21,7 +21,7 @@ public class GhostAI : MonoBehaviour
     private NavMeshAgent agent;
     public float Enrage = 0;
     public Vector3 wanderCenter;
-    public float WanderRadius = 8;
+    public float WanderRadius = 1;
     public float TimeFrozen {  get; private set; }
     public float CurrentFreezeLength {  get; private set; }
 
@@ -133,7 +133,8 @@ public class GhostAI : MonoBehaviour
     
     IEnumerator WanderRoutine()
     {
-        Vector3 wanderPos = (new Vector3(Random.value, 0, Random.value).normalized * Random.Range(-WanderRadius, WanderRadius)) + wanderCenter;
+        Vector3 wanderPos = (new Vector3(Random.value, 0, Random.value).normalized * Random.Range(-WanderRadius, WanderRadius)) + 
+            PuzzleManager.Instance.ghostProps[Random.Range(0, PuzzleManager.Instance.ghostProps.Count)].transform.position;
         state = GhostState.WANDER;
         agent.isStopped = false;
         agent.destination = wanderPos;

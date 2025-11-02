@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class PuzzleManager : Singleton<PuzzleManager>
 {
-    List<GameObject> ghostProps;
+    public List<GameObject> ghostProps { get; private set; }
     public UnityEvent<GameObject> OnGhostPropPictureTaken;
     void Start()
     {
