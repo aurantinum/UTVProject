@@ -7,12 +7,14 @@ public class GhostPropsManager : MonoBehaviour
     public int numberOfChairs;
     public int numberOfPotPanBottles;
     public int numberOfPortraits;
+    public int numberOfBathroomObj;
     public int numberOfMisc;
 
     public Transform jarParent;
     public Transform chairParent;
     public Transform ppbParent;
     public Transform portraitsParent;
+    public Transform bathroomParent;
     public Transform miscParent;
 
     public AudioClip ghostPing;
@@ -21,6 +23,7 @@ public class GhostPropsManager : MonoBehaviour
     private List<GameObject> chairs;
     private List<GameObject> potsPansBottles;
     private List<GameObject> portraits;
+    private List<GameObject> bathroomObjs;
     private List<GameObject> misc;
 
     public List<GameObject> ghostProps;
@@ -34,6 +37,7 @@ public class GhostPropsManager : MonoBehaviour
         chairs = new List<GameObject>();
         potsPansBottles = new List<GameObject>();
         portraits = new List<GameObject>();
+        bathroomObjs = new List<GameObject>();
         misc = new List<GameObject>();
         ghostProps = new List<GameObject>();
 
@@ -42,6 +46,7 @@ public class GhostPropsManager : MonoBehaviour
         chairs = CreateListFrom(chairParent);
         potsPansBottles = CreateListFrom(ppbParent);
         portraits = CreateListFrom(portraitsParent);
+        bathroomObjs = CreateListFrom(bathroomParent);
         misc = CreateListFrom(miscParent);
 
         // randomly select x props to be ghost props
@@ -49,6 +54,7 @@ public class GhostPropsManager : MonoBehaviour
         AddGhostProps(chairs, numberOfChairs);
         AddGhostProps(potsPansBottles, numberOfPotPanBottles);
         AddGhostProps(portraits, numberOfPortraits);
+        AddGhostProps(bathroomObjs, numberOfBathroomObj);
         AddGhostProps(misc, numberOfMisc);
 
         // set the properties of the ghost props
@@ -75,6 +81,7 @@ public class GhostPropsManager : MonoBehaviour
 
             // add squish
             SquishAnimation squish = ghostProp.AddComponent<SquishAnimation>();
+            squish.squishStrength = 0.08f;
             squish.target = ghostProp.transform;
             squish.enabled = true;
 
