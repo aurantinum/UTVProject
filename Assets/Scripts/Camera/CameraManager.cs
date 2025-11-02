@@ -244,7 +244,7 @@ public class CameraManager : Singleton<CameraManager>
         controller.enableZoom = false;
         controller.UpdateStart();
 
-        //SoundManager.PlaySound(SoundType.CameraClick);
+        SoundManager.PlaySound(SoundType.CameraClick);
         // Check win condition
         bool won = photoManager.HasWon();
 
