@@ -270,6 +270,7 @@ Transform:
   - {fileID: 6018236593671274853}
   - {fileID: 6139308532597926507}
   - {fileID: 8003110323120842617}
+  - {fileID: 1443925085}
   m_Father: {fileID: 2046100195}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &781379360
@@ -517,7 +518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443925084}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -547,7 +548,7 @@ Transform:
   - {fileID: 9085217714488115691}
   - {fileID: 158597444129693420}
   - {fileID: 7439843660007248009}
-  m_Father: {fileID: 2046100195}
+  m_Father: {fileID: 642394733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1481016248
 PrefabInstance:
@@ -725,7 +726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1520880867}
   m_Layer: 0
-  m_Name: Pot,Pan,Bottle
+  m_Name: Pots_Pans_Bottles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,7 +1044,6 @@ Transform:
   - {fileID: 828645876}
   - {fileID: 1520880867}
   - {fileID: 215473631}
-  - {fileID: 1443925085}
   - {fileID: 642394733}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1059,7 +1059,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6236446914349a42bf94eee77b4d052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostPropsManager
-  numberOfGhostProps: 8
+  numberOfJars: 2
+  numberOfChairs: 2
+  numberOfPotPanBottles: 2
+  numberOfMisc: 2
+  jarParent: {fileID: 74777389}
+  chairParent: {fileID: 828645876}
+  ppbParent: {fileID: 1520880867}
+  miscParent: {fileID: 215473631}
 --- !u!4 &14082503846923335
 Transform:
   m_ObjectHideFlags: 0
