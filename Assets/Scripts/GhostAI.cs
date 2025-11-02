@@ -35,6 +35,7 @@ public class GhostAI : MonoBehaviour
         StartCoroutine(nameof(WaitRoutine), 0.5f);
         CameraManager.Instance.OnGhostPictureTaken.AddListener(Freeze);
         CameraManager.Instance.OnAnyPictureTaken.AddListener(UnFreeze);
+        agent.speed *= .7f;
     }
 
     //GHOST CRAWL TOWARDS PLAYER
