@@ -153,6 +153,7 @@ public class CameraManager : Singleton<CameraManager>
 
     private void OnSwitch()
     {
+        if (PauseManager.paused) return;
         if (_doDebugLog) Debug.Log("Switching camera");
 
         if (takingPicture) return;
