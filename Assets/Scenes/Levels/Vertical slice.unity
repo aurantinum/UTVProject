@@ -6293,6 +6293,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4897607244343945972, guid: 13031e2bd5b44ae4295842ce91743941, type: 3}
   m_PrefabInstance: {fileID: 1911779302}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1913310532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1913310534}
+  - component: {fileID: 1913310533}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1913310533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913310532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d408f0954e4a24797061381f11e748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+--- !u!4 &1913310534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913310532}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -252.98154, y: -0.3, z: -272.97342}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1952580138
 GameObject:
   m_ObjectHideFlags: 0
@@ -7168,12 +7212,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8547556423317338966, guid: d2d47cab916b6f145a5a92a840a1ba07, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -874.99994
+      value: -875
       objectReference: {fileID: 0}
     - target: {fileID: 8776474063002733822, guid: d2d47cab916b6f145a5a92a840a1ba07, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 741052836}
+    - target: {fileID: 9006350261285785395, guid: d2d47cab916b6f145a5a92a840a1ba07, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -100
+      objectReference: {fileID: 0}
     - target: {fileID: 9211995737871423820, guid: d2d47cab916b6f145a5a92a840a1ba07, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -31308,3 +31356,4 @@ SceneRoots:
   - {fileID: 1080906380}
   - {fileID: 830653023}
   - {fileID: 1667828804}
+  - {fileID: 1913310534}
