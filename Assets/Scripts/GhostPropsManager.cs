@@ -55,9 +55,15 @@ public class GhostPropsManager : MonoBehaviour
 
         for (int i = 0; i < numberOfGhostProps; i++)
         {
+            // set object to ghost layer
             GameObject ghostProp = ghostProps[i];
             ghostProp.layer = LayerMask.NameToLayer("Ghost");
             ghostProp.tag = "GhostProp";
+
+            // stop casting shadows
+            MeshRenderer meshRenderer = ghostProp.GetComponent<MeshRenderer>();
+            meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+
             Debug.Log(i+1 + ": "+ ghostProp.name + " is invisible.");
         }
     }
