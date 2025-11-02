@@ -60,12 +60,12 @@ public class CameraManager : Singleton<CameraManager>
     private void Update()
     {
         // Fallback input check
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             OnSwitch();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             OnCapture();
         }
@@ -76,8 +76,8 @@ public class CameraManager : Singleton<CameraManager>
         Dictionary<GameObject, int> collisions = new();
         int maxCollisions = 0; 
 
-        float marginX = Screen.width / 5;
-        float marginY = Screen.height / 5;
+        float marginX = Screen.width / 10;
+        float marginY = Screen.height / 10;
 
         newPicture.hasGhost = false;
         newPicture.hasProp = false;
@@ -127,7 +127,7 @@ public class CameraManager : Singleton<CameraManager>
         {
             OnCameraTakenOut.Invoke();
             controller.mouseSensitivity = 1;
-            controller.maxLookAngle = 10f;
+            controller.maxLookAngle = 180f;
             controller.zoomStepTime = 1f;
             controller.zoomFOV = 20f;
             controller.fov = 45f;
@@ -137,7 +137,7 @@ public class CameraManager : Singleton<CameraManager>
         {
             OnCameraPutAway.Invoke();
             controller.mouseSensitivity = 2;
-            controller.maxLookAngle = 50f;
+            controller.maxLookAngle = 180f;
             controller.fov = 80f;
             Camera.main.GetUniversalAdditionalCameraData().SetRenderer(0);
         }
@@ -153,6 +153,7 @@ public class CameraManager : Singleton<CameraManager>
 
     private void OnSwitch()
     {
+        if (PauseManager.paused) return;
         if (_doDebugLog) Debug.Log("Switching camera");
 
         if (takingPicture) return;
@@ -200,7 +201,10 @@ public class CameraManager : Singleton<CameraManager>
 
         OnAnyPictureTaken.Invoke();
         if (newPicture.hasGhost)
+        {
+            if (_doDebugLog) Debug.Log("Ghost is here");
             OnGhostPictureTaken.Invoke();
+        }
 
         // Only adds a picture if the prop hasn't been discovered
         else if (newPicture.hasProp && !pictures.ContainsKey(currentProp))
@@ -230,7 +234,7 @@ public class CameraManager : Singleton<CameraManager>
         for (int i = 0; i <= shutterTime; i++)
         {
             blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
-            yield return null;
+            yield return new WaitForSeconds(.1f);
         }
 
         yield return new WaitForEndOfFrame();
@@ -238,7 +242,7 @@ public class CameraManager : Singleton<CameraManager>
         for (int i = shutterTime; i >= 0; i--)
         {
             blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
-            yield return null;
+            yield return new WaitForSeconds(.1f);
         }
 
         blackout.color = new Color(0, 0, 0, 0);

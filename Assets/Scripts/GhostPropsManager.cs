@@ -15,6 +15,8 @@ public class GhostPropsManager : MonoBehaviour
     public Transform portraitsParent;
     public Transform miscParent;
 
+    public AudioClip ghostPing;
+
     private List<GameObject> jars;
     private List<GameObject> chairs;
     private List<GameObject> potsPansBottles;
@@ -63,6 +65,19 @@ public class GhostPropsManager : MonoBehaviour
             // stop casting shadows
             MeshRenderer meshRenderer = ghostProp.GetComponent<MeshRenderer>();
             meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+
+            // make ping sound
+            AudioSource source = ghostProp.AddComponent<AudioSource>();
+            source.loop = true;
+            source.clip = ghostPing;
+            source.volume = 0.2f;
+            source.Play();
+
+            // add squish
+            SquishAnimation squish = ghostProp.AddComponent<SquishAnimation>();
+            squish.squishStrength = 0.08f;
+            squish.target = ghostProp.transform;
+            squish.enabled = true;
 
             Debug.Log(i+1 + ": "+ ghostProp.name + " is invisible.");
         }
