@@ -3,13 +3,19 @@ using System.Collections.Generic;
 
 public class GhostPropsManager : MonoBehaviour
 {
-    public int numberOfGhostProps = 8;
+    public int numberOfJars;
+    public int numberOfChairs;
+    public int numberOfPotPanBottles;
+    public int numberOfMisc;
+
+    private int numberOfGhostProps;
 
     private List<GameObject> props;
     private List<GameObject> ghostProps;
 
     void Start()
     {
+        numberOfGhostProps = numberOfJars + numberOfChairs + numberOfPotPanBottles + numberOfMisc;
         props = new List<GameObject>();
         ghostProps = new List<GameObject>();
 
