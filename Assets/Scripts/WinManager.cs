@@ -25,6 +25,8 @@ public class WinManager : Singleton<WinManager>
     public void LoseGame()
     {
         loseScreen.SetActive(true);
+        // PLEASE REPLACE NULL WITH AUDIO SOURCE
+        StartCoroutine(WaitForCrack(null));
     }
 
     public void ReloadGame()
