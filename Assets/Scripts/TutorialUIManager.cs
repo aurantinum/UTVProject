@@ -57,7 +57,7 @@ public class TutorialUIManager : MonoBehaviour
     {
         for(int i = tutorialPlacementPoint.childCount - 1; i >= 0; i--)
         {
-            Destroy(tutorialPlacementPoint.GetChild(i));
+            Destroy(tutorialPlacementPoint.GetChild(i).gameObject);
         }
     }
 
@@ -65,16 +65,16 @@ public class TutorialUIManager : MonoBehaviour
     {
         RemoveTPPChildren();
         yield return null;
-        Instantiate(tutorialObjects[names[0]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
-        RemoveTPPChildren();
-        yield return null;
         Instantiate(tutorialObjects[names[3]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
         yield return null;
         Instantiate(tutorialObjects[names[1]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
+        RemoveTPPChildren();
+        yield return null;
+        Instantiate(tutorialObjects[names[0]], tutorialPlacementPoint);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
     }
 
@@ -83,7 +83,7 @@ public class TutorialUIManager : MonoBehaviour
         RemoveTPPChildren();
         yield return null;
         Instantiate(tutorialObjects[names[1]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
     }
 
@@ -92,11 +92,11 @@ public class TutorialUIManager : MonoBehaviour
         RemoveTPPChildren();
         yield return null;
         Instantiate(tutorialObjects[names[6]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
         yield return null;
         Instantiate(tutorialObjects[names[5]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
     }
 
@@ -105,7 +105,7 @@ public class TutorialUIManager : MonoBehaviour
         RemoveTPPChildren();
         yield return null;
         Instantiate(tutorialObjects[names[4]], tutorialPlacementPoint);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         RemoveTPPChildren();
     }
 }
