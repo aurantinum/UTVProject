@@ -31306,6 +31306,7 @@ GameObject:
   - component: {fileID: 4459864851011658685}
   - component: {fileID: 4459864851011658684}
   - component: {fileID: 6674757911628567612}
+  - component: {fileID: 6674757911628567613}
   m_Layer: 7
   m_Name: FirstPersonController
   m_TagString: Player
@@ -34785,7 +34786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5477317239908709835
 Transform:
   m_ObjectHideFlags: 0
@@ -39042,6 +39043,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   autoInteractEveryFrame: 0
+--- !u!114 &6674757911628567613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459864851011658678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c1e0b2a9c011714f85be214ee58d88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  _persistent: 0
 --- !u!33 &6682766749144374476
 MeshFilter:
   m_ObjectHideFlags: 0

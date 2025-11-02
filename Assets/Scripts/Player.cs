@@ -4,18 +4,9 @@ public class Player : Singleton<Player>
 {
     public void OnAttacked()
     {
-        if(SanityManager.Instance.Sanity < (1/10) * SanityManager.Instance.StartingSanity)
-        {
-            //lose game
-        }
-        else
-        {
-            //disable camera for short time 
 
+        SanityManager.Instance.Sanity -= (1 / 10) * SanityManager.Instance.StartingSanity;
 
-            SanityManager.Instance.Sanity -= (1/15) * SanityManager.Instance.StartingSanity;
-
-        }
     }
 
 

@@ -246,7 +246,7 @@ public class CameraManager : Singleton<CameraManager>
 
         //SoundManager.PlaySound(SoundType.CameraClick);
         // Check win condition
-        bool won = true; //photoManager.HasWon();
+        bool won = photoManager.HasWon();
 
         if (won) { 
             WinManager.Instance.WinGame(controller, shutterTime);
