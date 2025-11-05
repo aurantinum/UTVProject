@@ -1194,30 +1194,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You are a special operative dropped into the middle of a haunted house.
+  m_text: "You are a special operative dropped into the middle of a haunted house.
     Equipped with a haunted camera you must take pictures of all of the haunted items
     in the house to cleanse it of evil. But be wary the longer you embrace the darkness,
-    the further it will corrupt you.
-
-
-
-    Haunted objects: some items in the house
-    will appear through the lens of the camera, but not in the corporeal world. To
-    restore the natural order, trade a part of your sanity through the camera.
-
-
-
-    Ghost:
-    take a picture of the ghost, stun it, when stunned your sanity is safe. Looking
-    at the ghost through the camera drains your sanity quicker
-
-
-
-    Sanity: the
-    further you rip the veil between the corporeal world and the spirit world, more
-    you lose yourself.
-
-'
+    the further it will corrupt you.\r\n\r\nThe spirit inhabiting the manor has taken
+    a few of his belongings with him to the spirit realm. He will patrol his manor,
+    protecting the belongings he brought with him to the other side. It's your job
+    to use your supernatural camera to snap the haunted objects out of the aether
+    and back into reality. Beware, as the spirit is very protective and will become
+    more aggressive towards anyone who dares to invade his former abode.\r\n\r\nYou
+    must bridge the gap between the two worlds and bring balance, otherwise you\u2019ll
+    lose your mind.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

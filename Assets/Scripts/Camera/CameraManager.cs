@@ -243,7 +243,6 @@ public class CameraManager : Singleton<CameraManager>
         controller.UpdateStart();
 
 
-
         for (int i = 0; i <= shutterTime; i++)
         {
             blackout.color = new Color(0, 0, 0, i / (float)shutterTime);
@@ -275,15 +274,17 @@ public class CameraManager : Singleton<CameraManager>
         UpdateCameras(CameraMode.Player);
 
         SoundManager.PlaySound(SoundType.CameraClick);
+
+        takingPicture = false;
         // Check win condition
         bool won = photoManager.HasWon();
 
         if (won)
         {
+            Debug.Log("You won");
             WinManager.Instance.WinGame(controller, shutterTime);
             yield break;
         }
-        takingPicture = false;
     }
 
 
