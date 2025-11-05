@@ -14,6 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Vertical slice.unity
     guid: 7a5ce397ff907c048a197f618491cfcb
+  - enabled: 1
+    path: Assets/Scenes/Levels/Vertical slice VR.unity
+    guid: 693dfb23a0d1e4944935228543d03309
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5561ba626a9ce384fa27cb0c0f7f1725, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: dd1924c6a7e5a7c41bdba3da6a5b84d2, type: 2}
   m_UseUCBPForAssetBundles: 0
